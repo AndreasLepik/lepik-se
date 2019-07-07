@@ -233,6 +233,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 5%;
+  padding-bottom: 2rem; /* Compensate for taskbar */
   font-family: Microsoft Sans Serif, Wine Microsoft Sans Serif, Arial,
     MS UI Gothic, sans-serif;
 }
@@ -347,4 +348,46 @@ textarea {
   flex-grow: 2;
   flex-basis: 66%;
   text-align: right;
+}
+
+.taskbar {
+  width: 100%;
+  height: 2rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 2px solid #dadada;
+  background: #bfbfbf;
+  padding: 2px;
+
+  display: flex;
+  justify-items: space-between;
+}
+
+.taskbar__start {
+  padding: 2px;
+  margin: 0;
+  border: 2px solid;
+  background: transparent;
+  border-color: #dadada #444 #444 #dadada;
+  display: flex;
+  align-items: center;
+}
+
+.taskbar__start:active {
+  border-color: #444 #dadada #dadada #444;
+  outline: 0;
+}
+
+.taskbar__start svg {
+  display: inline-block;
+  height: 18px;
+  width: auto;
+}
+
+.taskbar__start span {
+  font-weight: bold;
+  display: inline-block;
+  padding: 0 0.25em;
+  color: black;
 }
