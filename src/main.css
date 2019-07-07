@@ -238,6 +238,16 @@ body {
     MS UI Gothic, sans-serif;
 }
 
+::-moz-selection {
+  background: #000080;
+  color: white;
+}
+
+::selection {
+  background: #000080;
+  color: white;
+}
+
 .window {
   border: 2px solid;
   border-color: #dbdbdb #535353 #535353 #dbdbdb;
