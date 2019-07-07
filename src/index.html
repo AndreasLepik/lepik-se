@@ -194,6 +194,29 @@
           />
         </svg> <span>Start</span>
       </button>
+      <div class="taskbar__time" id="js-taskbar-time"></div>
     </footer>
   </body>
+  <script>
+    var timeElement = document.getElementById('js-taskbar-time');
+
+    function formatTime(date) {
+      return [date.getHours(), date.getMinutes()]
+        .map(function(val) {
+          return val < 10 ? '0' + val : val;
+        })
+        .join(':');
+    }
+
+    var memo;
+    setInterval(function() {
+      var now = new Date();
+      var time = formatTime(now);
+      if (time === memo) return;
+      timeElement.innerText = time;
+      memo = time;
+    }, 10 * 1000);
+
+    timeElement.innerText = formatTime(new Date());
+  </script>
 </html>
