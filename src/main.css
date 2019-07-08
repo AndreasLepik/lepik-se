@@ -232,8 +232,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5%;
-  padding-bottom: 2rem; /* Compensate for taskbar */
+  padding-top: 5%;
+  padding-bottom: 1rem; /* Compensate for taskbar */
   font-family: Microsoft Sans Serif, Wine Microsoft Sans Serif, Arial,
     MS UI Gothic, sans-serif;
 }
@@ -252,8 +252,6 @@ body {
   border: 2px solid;
   border-color: #dbdbdb #535353 #535353 #dbdbdb;
   background-color: #bfbfbf;
-  width: 600px;
-  max-width: 100%;
   font-size: 13px;
   padding: 2px;
 }
@@ -321,7 +319,9 @@ textarea {
   border-color: #808080 #c7c7c7 #c7c7c7 #808080;
   background-color: #fff;
   padding: 0.5em 0.75em;
-  width: 100%;
+  width: 600px;
+  min-width: 200px;
+  max-width: calc(90vw);
 }
 
 .toolbar {
