@@ -4,6 +4,7 @@
   "description": "Placeholder-website for https://lepik.se",
   "main": "index.js",
   "scripts": {
+    "dev" :"live-server src",
     "build": "mkdir -p dist && cp -r src/* dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/wanecek/lepik-se/issues"
   },
-  "homepage": "https://github.com/wanecek/lepik-se#readme"
+  "homepage": "https://github.com/wanecek/lepik-se#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
 }
