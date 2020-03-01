@@ -4,8 +4,8 @@
   "description": "Placeholder-website for https://lepik.se",
   "main": "index.js",
   "scripts": {
-    "dev" :"live-server src",
-    "build": "mkdir -p dist && cp -r src/* dist",
+    "start": "live-server src",
+    "build": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,11 @@
   },
   "homepage": "https://github.com/wanecek/lepik-se#readme",
   "devDependencies": {
+    "autoprefixer": "^9.7.4",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-postcss": "^8.0.0",
     "live-server": "^1.2.1"
   }
 }
