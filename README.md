@@ -39,5 +39,5 @@ automagically reloads the browser and/or injects changes for you. This requires
 npm install
 
 # Run the development script, defined in package.json
-npm run dev
+npm start
 ```
