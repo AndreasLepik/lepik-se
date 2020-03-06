@@ -231,11 +231,20 @@ html {
   height: 100%;
 }
 
+/*
+ * Define web font for that spicy steve jobs look
+ */
+@font-face {
+  font-family: "San Fransisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
 body {
   background: #0839fa;
   background: #727272;
   color: white;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'San Fransisco', 'DM Sans', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -274,7 +283,7 @@ h2 {
 }
 
 a {
-  color: white;
+  color: #79CEB1;
   transition: opacity 0.2s ease;
 }
 
