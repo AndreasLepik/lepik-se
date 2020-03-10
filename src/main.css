@@ -238,6 +238,7 @@ html {
   font-family: "San Fransisco";
   font-weight: 400;
   src: local(".SFNSText-Regular"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+  font-display: swap;
 }
 
 body {
