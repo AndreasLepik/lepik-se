@@ -244,7 +244,7 @@ body {
   background: #0839fa;
   background: #727272;
   color: white;
-  font-family: 'San Fransisco', 'DM Sans', sans-serif;
+  font-family: -apple-system, 'San Fransisco', system-ui, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
