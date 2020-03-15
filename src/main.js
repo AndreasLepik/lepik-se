@@ -1,20 +1,43 @@
 // @ts-check
-const validActions = ['a0', 'a1', 'b0', 'b1'];
+/*
+Script containing logic for the graphics page of lepik.se
+*/
 
-const canvas = document.getElementById('canvas1');
-const context = canvas.getContext('2d');
-const textbox = document.getElementById("input1");
-const output = document.getElementById("outputText");
+// Global variables
+
+var validActions = ['a0', 'a1', 'b0', 'b1'];
+const swRed = '#D00000';
+
+
+const canvas =          document.getElementById('canvas1');
+const canvasPosition =  canvas.getBoundingClientRect();
+const height =          canvasPosition.height;
+const width =           canvasPosition.width;
+const context =         canvas.getContext('2d');
+const textbox =         document.getElementById("input1");
+const output =          document.getElementById("outputText");
+
+
+// Link objects to functions
 
 document.getElementById('drawButton').addEventListener('click', readAction);
 
+
+// Functions to run on start up
+
 initDraw();
 
+
+// Function definitions
+
 function initDraw() {
+    context.fillStyle = '#202020';
+    context.fillRect(0, 0, 450, 300);
     drawGrid();
 }
 
 function drawGrid() {
+    context.strokeStyle = '#FFFFFF';
     context.strokeRect(0, 0, 225, 150);
     context.strokeRect(0, 150, 225, 150);
     context.strokeRect(225, 0, 225, 150);
@@ -24,14 +47,15 @@ function drawGrid() {
 function readAction() {
     var input = textbox.value.toLowerCase();
     if (validActions.includes(input)) {
-        preformAction(input);
+        performAction(input);
     } else {
         invalidAction(input);
     }
 }
 
-function preformAction(input) {
-    context.fillRect(0,0,225,150);
+function performAction(input) {
+    context.fillStyle = swRed;
+    context.fillRect(1,1,223,148);
     output.innerHTML = "Action: " + input;
 }
 
