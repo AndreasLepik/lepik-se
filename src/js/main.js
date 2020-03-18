@@ -116,10 +116,6 @@ function getGridPos(gridPos) {
     return [x, y];
 }
 
-function getGridCellSize() {
-    
-}
-
 function writeToOutput(text) {
     output.innerHTML = text;
 }
