@@ -1,56 +1,54 @@
 
 var audioContext;
-var soundBuffer;
+var soundBuffers = [];
+var soundLinks = ["hihat.wav"];
+var bpm = 175;
+var beatLength = 60.0 / bpm;
 
 window.addEventListener('load', init, false);
-document.getElementById("drawButton").addEventListener('click', hatzzz);
+document.getElementById("play").addEventListener('click', hatzzz);
 
 function init() {
         audioContext = new AudioContext();
-        loadSound("hihat.wav");
+        loadSounds(soundLinks);
 }
 
 function hatzzz() {
-    // finishedLoading(soundBuffer);
-    playSound(soundBuffer);
-    // loadSound("hihat.wav");
-
+    var time = audioContext.currentTime;
+    playSound(soundBuffers[0], time);
+    playSound(soundBuffers[0], time + beatLength);
+    playSound(soundBuffers[0], time + beatLength * 1.66);
+    playSound(soundBuffers[0], time + beatLength * 2);
+    playSound(soundBuffers[0], time + beatLength * 3);
+    playSound(soundBuffers[0], time + beatLength * 3.66);
+    playSound(soundBuffers[0], time + beatLength * 4);
+    playSound(soundBuffers[0], time + beatLength * 4.66);
+    playSound(soundBuffers[0], time + beatLength * 5);
+    playSound(soundBuffers[0], time + beatLength * 6);
 }
 
-function loadSound(link) {
+function loadSounds(links) {
+    links.forEach(
+        (link, index) => loadSound(link, index));
+}
+
+function loadSound(link, bufferIndex) {
     var request = new XMLHttpRequest();
     request.open('GET', link, true);
     request.responseType = 'arraybuffer';
 
-    request.onload = function() {
-        audioContext.decodeAudioData(request.response, function(buffer) {
-            soundBuffer = buffer;
-        }, onError);
+    request.onload = () => {
+        audioContext.decodeAudioData(
+            request.response, 
+            (buffer) => soundBuffers[bufferIndex] = buffer, 
+            (error) => console.error(error));
     }
     request.send();
-    // soundBuffer = new BufferLoader(
-    //     audioContext,
-    //     [link],
-    //     finishedLoading
-    // );
-    // soundBuffer.load();
 }
 
-function onError() {
-    console.error("")
-}
-
-function finishedLoading(bufferList) {
-    var source = audioContext.createBufferSource();
-    source.buffer = bufferList[0];
-    source.connect(audioContext.destination);
-    source.start(0);
-}
-
-function playSound(buffer) {
+function playSound(buffer, time) {
     var source = audioContext.createBufferSource();
     source.buffer = buffer;
     source.connect(audioContext.destination);
-    source.start(0);
+    source.start(time);
 }
-
