@@ -1,7 +1,7 @@
 
 var audioContext;
 var soundBuffers = [];
-var soundLinks = ["hihat.wav"];
+var soundLinks = ["sounds/hihat.wav"];
 var bpm = 175;
 var beatLength = 60.0 / bpm;
 
