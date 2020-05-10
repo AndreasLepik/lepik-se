@@ -1,11 +1,11 @@
 // @ts-check
-/*
-Script containing logic for drum machine in lepik.se
-*/
+/**
+ * Script containing logic for drum machine in lepik.se
+ */
 
 // Global variables
 
-var validActions = ['help'];
+var validActions = ['help', 'bpm'];
 
 const numberOfRows =    1;
 const numberOfCols =    4;
@@ -33,23 +33,23 @@ textBox.addEventListener('keyup', function (event) {
 
 // Function definitions
 
-function readAction() { // Just a double check in this state
-    var input = textBox.value.toLowerCase();
-    if (validActions.includes(input)) {
-        performAction(input);
-    } else {
-        invalidAction(input);
-    }
+function readAction() {
+    const input = textBox.value.toLowerCase();
+    performAction(input);
 }
 
 function performAction(input) {
-    switch (validActions.indexOf(input)) {
+    const words = input.split(' ');
+    switch (validActions.indexOf(words[0])) {
         case 0: // help
             writeToOutput("Wow, I love what you've done with your hair!"); // TODO
             break;
         case -1: // Action not found
             logEcho("This should never happen");
             invalidAction(input);
+            break;
+        case 1:
+            writeToOutput("New tempo: " + words[1] + " bpm." + " Nothing actually changed tho.");
             break;
         default:
             invalidAction(input);

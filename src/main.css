@@ -8,7 +8,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-html {
+ html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -241,8 +241,7 @@ html {
 }
 
 body {
-  background: #0839fa;
-  background: #727272;
+  background: #818181;
   color: white;
   font-family: 'San Fransisco', 'DM Sans', sans-serif;
   display: flex;
@@ -258,7 +257,7 @@ body {
 }
 
 ::selection {
-  background: black;
+  background: rgb(49, 49, 49);
   color: white;
 }
 
@@ -280,6 +279,61 @@ h2 {
   max-width: 90%;
   margin: 2em auto;
   padding-bottom: 5%;
+}
+
+.checkbox-row {
+  min-height: 30px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Hide the default checkbox */
+input[type='checkbox'] {
+  display: none;
+}
+
+/* Draw custom checkbox */
+.checkbox-row input[type='checkbox'] + label {
+  width: 50px;
+  height: 50px;
+  display: block;
+  /* position: relative; */
+  /* margin: auto; */
+  /* box-sizing: border-box; */
+  /* -webkit-box-sizing: border-box; */
+  /* -moz-box-sizing: border-box; */
+  /* text-indent: -999px; */
+  /* overflow: hidden; */
+  background:transparent;
+  border: 1px solid white;
+  transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+  cursor: pointer;
+}
+
+.checkbox-row input[type='checkbox']:hover + label {
+  background: rgb(114, 114, 114);
+}
+
+.checkbox-row input[type='checkbox']:checked + label {
+  background: white;
+}
+
+/* Test to orange high-light classes in small windows. */
+@media (max-width: 60em) {
+  .page-wrap {
+    background-color: coral;
+  }
+
+  .checkbox-matrix {
+    background-color: rgb(255, 151, 113);
+  }
+
+  .IO-box {
+    background-color: rgb(255, 151, 113);
+  }
 }
 
 a {

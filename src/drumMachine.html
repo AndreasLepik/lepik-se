@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title id='title'>JavaScript Playground</title>
+    <title id='title'>DrumB0T</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -14,11 +14,28 @@
 
   <body>
     <div class="page-wrap">
-      <h1>New Robot Best Friend</h1>
-      <p id="outputText">Hello friend, nice to see you.</p>
-      <input id="input1" type="text" placeholder="Type action here" />
-      <button id ="inputButton">Do!</button>
-      <Button id="play">HATZ! >:D</Button>
+      <h1>Robot Best Friend</h1>
+
+      <div class="checkbox-matrix">
+        <div class="checkbox-row">
+          <input type="checkbox" id="box00">
+          <label for="box00"></label>
+          <input type="checkbox" id="box01">
+          <label for="box01"></label>
+          <input type="checkbox" id="box02">
+          <label for="box02"></label>
+          <input type="checkbox" id="box03">
+          <label for="box03"></label>  
+        </div>
+      </div>
+
+      <div class="IO-box">
+        <p id="outputText">Hello new friend, nice to see you. Let's make some beatboxes together!</p>
+        <input id="input1" type="text" placeholder="Type action here" />
+        <button id ="inputButton">Do!</button>
+        <Button id="play">HATZ! >:D</Button>  
+      </div>
+
     </div>
     <script src="js/main.js"></script>
     <script src="js/audio.js"></script>

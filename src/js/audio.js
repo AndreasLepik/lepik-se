@@ -9,8 +9,8 @@ window.addEventListener('load', init, false);
 document.getElementById("play").addEventListener('click', hatzzz);
 
 function init() {
-        audioContext = new AudioContext();
-        loadSounds(soundLinks);
+    audioContext = new AudioContext();
+    loadSounds(soundLinks);
 }
 
 function hatzzz() {
