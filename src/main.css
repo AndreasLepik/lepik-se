@@ -282,7 +282,7 @@ h2 {
 }
 
 .checkbox-row {
-  min-height: 30px;
+  min-height: 53px;
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -315,13 +315,15 @@ input[type='checkbox'] {
 
 .checkbox-row input[type='checkbox']:hover + label {
   background: rgb(114, 114, 114);
+  width: 53px;
+  height: 53px;
 }
 
 .checkbox-row input[type='checkbox']:checked + label {
   background: white;
 }
 
-/* Test to orange high-light classes in small windows. */
+/* Visualize boxes in small windows. */
 @media (max-width: 60em) {
   .page-wrap {
     background-color: coral;
@@ -332,6 +334,10 @@ input[type='checkbox'] {
   }
 
   .IO-box {
+    background-color: rgb(255, 151, 113);
+  }
+
+  h1 {
     background-color: rgb(255, 151, 113);
   }
 }
