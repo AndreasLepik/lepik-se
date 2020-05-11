@@ -8,13 +8,14 @@
 var validActions = ['help', 'bpm'];
 
 const numberOfRows =    1;
-const numberOfCols =    4;
+const numberOfCols =    8;
 const swRed =           '#D00000';
 const swBlue =          '#0000D0';
 const swWhite =         '#D0D0D0';
 
 const textBox =         document.getElementById("input1");
 const output =          document.getElementById("outputText");
+// const boxRow0 =         document.getElementsByClassName("checkbox-row")
 
 
 // Link elements to functions
@@ -48,12 +49,22 @@ function performAction(input) {
             logEcho("This should never happen");
             invalidAction(input);
             break;
-        case 1:
-            writeToOutput("New tempo: " + words[1] + " bpm." + " Nothing actually changed tho.");
+        case 1: // bpm
+            setTempo(words[1]);
             break;
         default:
             invalidAction(input);
             break;
+    }
+}
+
+function setTempo(tempo) {
+    const t = Number(tempo);
+    if (t >= 50 && t <= 300) {
+        bpm = t;
+        writeToOutput("New tempo: " + bpm + " bpm.");
+    } else {
+        writeToOutput("Invalid tempo! Nothing changed.")
     }
 }
 

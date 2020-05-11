@@ -3,7 +3,6 @@ var audioContext;
 var soundBuffers = [];
 var soundLinks = ["sounds/hihat.wav"];
 var bpm = 175;
-var beatLength = 60.0 / bpm;
 
 window.addEventListener('load', init, false);
 document.getElementById("play").addEventListener('click', hatzzz);
@@ -13,18 +12,22 @@ function init() {
     loadSounds(soundLinks);
 }
 
+function beatLength() {
+    return 60.0 / bpm;
+}
+
 function hatzzz() {
     var time = audioContext.currentTime;
     playSound(soundBuffers[0], time);
-    playSound(soundBuffers[0], time + beatLength);
-    playSound(soundBuffers[0], time + beatLength * 1.66);
-    playSound(soundBuffers[0], time + beatLength * 2);
-    playSound(soundBuffers[0], time + beatLength * 3);
-    playSound(soundBuffers[0], time + beatLength * 3.66);
-    playSound(soundBuffers[0], time + beatLength * 4);
-    playSound(soundBuffers[0], time + beatLength * 4.66);
-    playSound(soundBuffers[0], time + beatLength * 5);
-    playSound(soundBuffers[0], time + beatLength * 6);
+    playSound(soundBuffers[0], time + beatLength());
+    playSound(soundBuffers[0], time + beatLength() * 1.66);
+    playSound(soundBuffers[0], time + beatLength() * 2);
+    playSound(soundBuffers[0], time + beatLength() * 3);
+    playSound(soundBuffers[0], time + beatLength() * 3.66);
+    playSound(soundBuffers[0], time + beatLength() * 4);
+    playSound(soundBuffers[0], time + beatLength() * 4.66);
+    playSound(soundBuffers[0], time + beatLength() * 5);
+    playSound(soundBuffers[0], time + beatLength() * 6);
 }
 
 function loadSounds(links) {
