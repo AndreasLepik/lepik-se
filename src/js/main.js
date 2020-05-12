@@ -62,9 +62,10 @@ function setTempo(tempo) {
     const t = Number(tempo);
     if (t >= 50 && t <= 300) {
         bpm = t;
+        beatLength = 60.0 / t;
         writeToOutput("New tempo: " + bpm + " bpm.");
     } else {
-        writeToOutput("Invalid tempo! Nothing changed.")
+        writeToOutput("Invalid tempo " + tempo + "! Nothing changed.")
     }
 }
 
