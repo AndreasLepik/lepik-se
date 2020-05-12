@@ -281,6 +281,38 @@ h2 {
   padding-bottom: 5%;
 }
 
+.overlap-text {
+  font-weight: 900;
+  font-size: 4rem;
+}
+
+.right {
+  z-index: 3;
+  color: aquamarine;
+  /* left: 1px; */
+  /* top: 1px; */
+  position: relative;
+  transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+}
+
+.left {
+  z-index: 1;
+  color: coral;
+  left: 5px;
+  top: -0.89em;
+  position: absolute;
+}
+
+.front {
+  z-index: 2;
+  color: white;
+  left: 2px;
+  top: -0.89em;
+  position: absolute;
+}
+
 .checkbox-row {
   min-height: 53px;
   align-items: center;
@@ -322,6 +354,7 @@ input[type='checkbox'] {
 .checkbox-row input[type='checkbox']:checked + label {
   background: white;
 }
+
 
 /* Visualize boxes in small windows. */
 @media (max-width: 60em) {
