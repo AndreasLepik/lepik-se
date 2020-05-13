@@ -380,6 +380,16 @@ input[type='checkbox'] {
   }
 }
 
+@keyframes button-click { 
+  0% { transform: scale(1); color: rgb(255, 187, 162);}
+  50% { transform: scale(1.03); color: coral;}
+  100% { transform: scale(1); color: rgb(255, 187, 162);}
+}
+
+button:active {
+  animation: button-click ease 0.3s;
+}
+
 button {
   background: none;
   border: 1px solid white;
