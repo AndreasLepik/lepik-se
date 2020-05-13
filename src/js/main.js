@@ -36,6 +36,7 @@ textBox.addEventListener('keyup', function (event) {
 
 function readAction() {
     const input = textBox.value.toLowerCase();
+    clearInput();
     performAction(input);
 }
 
@@ -44,10 +45,6 @@ function performAction(input) {
     switch (validActions.indexOf(words[0])) {
         case 0: // help
             writeToOutput("Wow, I love what you've done with your hair!"); // TODO
-            break;
-        case -1: // Action not found
-            logEcho("This should never happen");
-            invalidAction(input);
             break;
         case 1: // bpm
             setTempo(words[1]);
@@ -67,6 +64,10 @@ function setTempo(tempo) {
     } else {
         writeToOutput("Invalid tempo " + tempo + "! Nothing changed.")
     }
+}
+
+function clearInput() {
+    textBox.value = '';
 }
 
 function writeToOutput(text) {
