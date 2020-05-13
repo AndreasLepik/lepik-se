@@ -289,12 +289,14 @@ h2 {
 .right {
   z-index: 3;
   color: aquamarine;
-  /* left: 1px; */
-  /* top: 1px; */
   position: relative;
   transition: 0.5s ease all;
   -moz-transition: 0.5s ease all;
   -webkit-transition: 0.5s ease all;
+}
+
+.right:hover {
+  font-size: 4.1rem;
 }
 
 .left {
@@ -303,6 +305,7 @@ h2 {
   left: 5px;
   top: -0.89em;
   position: absolute;
+  height: 0.89em;
 }
 
 .front {
@@ -311,6 +314,8 @@ h2 {
   left: 2px;
   top: -0.89em;
   position: absolute;
+  height: 0.89em;
+  text-align: center;
 }
 
 .checkbox-row {
@@ -373,6 +378,20 @@ input[type='checkbox'] {
   h1 {
     background-color: rgb(255, 151, 113);
   }
+}
+
+button {
+  background: none;
+  border: 1px solid white;
+  cursor: pointer;
+  color: white;
+  padding: 5px 10px;
+  margin: 5px;
+  transition: 0.5s ease all;
+}
+
+button:hover {
+  background: rgb(114, 114, 114);
 }
 
 a {
