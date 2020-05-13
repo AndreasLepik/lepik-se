@@ -386,11 +386,23 @@ button {
   cursor: pointer;
   color: white;
   padding: 5px 10px;
-  margin: 5px;
+  /* margin: 5px; */
   transition: 0.5s ease all;
 }
 
 button:hover {
+  background: rgb(114, 114, 114);
+}
+
+input[type="text"] {
+  background: none;
+  border: 1px solid white;
+  padding: 4px 5px;
+  color: white;
+  font-size: inherit;
+}
+
+input[type="text"]:focus {
   background: rgb(114, 114, 114);
 }
 
