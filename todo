@@ -7,12 +7,14 @@ JS file structure
 Tie boxes to hihats
 Web Audio stuff - actual drum machine functionality
 Loop feature
+Off accent beat patterns
 
 # Cascading Style Sheets
-Box hover movement fix
+Hover enlarge flex fix
 IO box styling
 Multiple sequence lengths
+Beat patterns UI
 
 # Hypertext Markup Language
 HTML div structures
-Overlapping title text a la GREAT ALBUMS
+Overlapping title fix padding
