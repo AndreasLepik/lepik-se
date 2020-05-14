@@ -380,16 +380,7 @@ input[type='checkbox'] {
   }
 }
 
-@keyframes button-click { 
-  0% { transform: scale(1); color: rgb(255, 187, 162);}
-  50% { transform: scale(1.03); color: coral;}
-  100% { transform: scale(1); color: rgb(255, 187, 162);}
-}
-
-button:active {
-  animation: button-click ease 0.3s;
-}
-
+/* Buttons */
 button {
   background: none;
   border: 1px solid white;
@@ -404,16 +395,27 @@ button:hover {
   background: rgb(114, 114, 114);
 }
 
+button:active {
+  animation: button-click ease 0.3s;
+}
+
+@keyframes button-click { 
+  0% { transform: scale(1); color: rgb(255, 187, 162);}
+  50% { transform: scale(1.03); color: coral;}
+  100% { transform: scale(1); color: rgb(255, 187, 162);}
+}
+
+/* Textbox */
 input[type="text"] {
   background: none;
   border: 1px solid white;
   padding: 4px 5px;
   color: white;
-  font-size: inherit;
+  /* font-size: 1.25rem; */
 }
 
 input[type="text"]:focus {
-  background: rgb(114, 114, 114);
+  background: rgb(100, 100, 100);
 }
 
 a {

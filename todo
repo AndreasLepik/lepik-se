@@ -8,13 +8,25 @@ Tie boxes to hihats
 Web Audio stuff - actual drum machine functionality
 Loop feature
 Off accent beat patterns
+Scrap chatbot function
 
 # Cascading Style Sheets
 Hover enlarge flex fix
 IO box styling
-Multiple sequence lengths
 Beat patterns UI
+Individual box mod section
 
 # Hypertext Markup Language
 HTML div structures
 Overlapping title fix padding
+BPM number toggle
+Keyboard control - tie numbers to boxes
+Keyboard control - navigate boxes with arrows
+Multiple sequence rows
+
+# Waaay down the road
+Multiple sequence lengths
+Keyboard control - combination keys ex. [shift + 1]
+FX section
+Modulation channels on sequencer
+Scrolling channel view

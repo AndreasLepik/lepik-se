@@ -5,8 +5,6 @@
 
 // Global variables
 
-var validActions = ['help', 'bpm'];
-
 const numberOfRows =    1;
 const numberOfCols =    8;
 const swRed =           '#D00000';
@@ -28,26 +26,30 @@ textBox.addEventListener('keyup', function (event) {
     }
 });
 
-
-// Functions to run on start up
-
-
 // Function definitions
 
 function readAction() {
     const input = textBox.value.toLowerCase();
     clearInput();
+    if (input.length > 15) {
+        writeToOutput("Input too long, calm down browsky!")
+        return;
+    }
+    if (input.length < 1) {
+        writeToOutput("Don't be shy. I too am an IntroBot.")
+        return;
+    }
     performAction(input);
 }
 
 function performAction(input) {
     const words = input.split(' ');
-    switch (validActions.indexOf(words[0])) {
-        case 0: // help
-            writeToOutput("Wow, I love what you've done with your hair!"); // TODO
+    switch (words[0]) {
+        case 'help':
+            writeToOutput("I'm a drumBot, not a helpBot! Bleep bloop."); // TODO
             break;
-        case 1: // bpm
-            setTempo(words[1]);
+        case 'bpm':
+            changeTempo(words[1]);
             break;
         default:
             invalidAction(input);
@@ -55,15 +57,16 @@ function performAction(input) {
     }
 }
 
-function setTempo(tempo) {
-    const t = Number(tempo);
-    if (t >= 50 && t <= 300) {
-        bpm = t;
-        beatLength = 60.0 / t;
-        writeToOutput("New tempo: " + bpm + " bpm.");
-    } else {
-        writeToOutput("Invalid tempo " + tempo + "! Nothing changed.")
+function changeTempo(tempo) {
+    if (tempo == undefined) {
+        writeToOutput("Can't groove without a tempo, brother.");
+        return;
     }
+    const t = setTempo(tempo);
+    if (t != -1) 
+        writeToOutput("New tempo: " + t + " bpm.");
+    else
+        writeToOutput("Invalid tempo " + tempo + "! Nothing changed.");
 }
 
 function clearInput() {

@@ -52,3 +52,14 @@ function playSound(buffer, time) {
     source.connect(audioContext.destination);
     source.start(time);
 }
+
+function setTempo(tempo) {
+    const t = Number(tempo);
+    if (t >= 50 && t <= 300) {
+        bpm = t;
+        beatLength = 60.0 / t;
+        return t;
+    } else {
+        return -1;
+    }
+}
