@@ -11,13 +11,22 @@ const numberOfCols =    8;
 const tempoInput =      document.getElementById("input-tempo");
 const playButton =      document.getElementById("play");
 const output =          document.getElementById("outputText");
-const boxRow0 =         document.getElementsByClassName("checkbox-row")
-
+const checkboxRow0 = [ // TODO - FIX THIS GET MESS
+    document.getElementById("box00"),
+    document.getElementById("box01"),
+    document.getElementById("box02"),
+    document.getElementById("box03"),
+    document.getElementById("box04"),
+    document.getElementById("box05"),
+    document.getElementById("box06"),
+    document.getElementById("box07")
+]
 
 // Link elements to functions
 
 playButton.addEventListener('click', hatzzz);
 tempoInput.addEventListener('change', changeTempo)
+document.addEventListener('keyup', keyboardShortcuts)
 // document.getElementById("inputButton").addEventListener('click', readAction);
 // textBox.addEventListener('keyup', function (event) {
 //     if (event.keyCode == 13) {
@@ -27,6 +36,14 @@ tempoInput.addEventListener('change', changeTempo)
 // });
 
 // Function definitions
+
+function keyboardShortcuts(e) {
+    const keyVal = e.which;
+    if (keyVal >= 49 && keyVal <= 56) {
+        const i = keyVal - 49;
+        checkboxRow0[i].click();
+    }
+}
 
 function changeTempo() {
     const tempo = tempoInput.value;
