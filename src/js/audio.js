@@ -6,7 +6,6 @@ var bpm = 175;
 var beatLength = 60.0 / bpm;
 
 window.addEventListener('load', init, false);
-document.getElementById("play").addEventListener('click', hatzzz);
 
 function init() {
     audioContext = new AudioContext();

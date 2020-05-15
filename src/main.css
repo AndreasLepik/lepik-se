@@ -405,17 +405,30 @@ button:active {
   100% { transform: scale(1); color: rgb(255, 187, 162);}
 }
 
-/* Textbox */
-input[type="text"] {
+/* Numberbox input */
+
+#input-tempo {
   background: none;
   border: 1px solid white;
   padding: 4px 5px;
   color: white;
-  /* font-size: 1.25rem; */
+  width: 3em;
+  -moz-appearance: textfield;
 }
 
-input[type="text"]:focus {
+#input-tempo:focus {
+  caret-color: transparent;
   background: rgb(100, 100, 100);
+}
+
+#input-tempo:invalid {
+  background: black;
+}
+/* Remove arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 a {

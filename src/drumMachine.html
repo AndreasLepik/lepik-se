@@ -47,13 +47,14 @@
 
       <div class="IO-box">
         <p id="outputText">Hello there new friend. Let's make some beatboxes together!</p>
-        <input id="input1" type="text" placeholder="Write a message..." />
+        <label for="input-tempo">Tempo</label>
+        <input id="input-tempo" type="number" value="120" min="50" max="300" onclick="this.select()"/>
         <button id ="inputButton">&#10148;</button>
         <button id="play">&#9835;</Button>  
       </div>
 
     </div>
-    <script src="js/main.js"></script>
     <script src="js/audio.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
