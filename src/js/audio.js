@@ -1,3 +1,7 @@
+/**
+ * Audio control for drumBOT on lepik.se
+ * Written by Andreas Lepik
+ */
 
 var audioContext;
 var soundBuffers = [];

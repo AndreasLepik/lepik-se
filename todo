@@ -4,22 +4,22 @@
 ## DrumBOT
 # JavaScript
 JS file structure
+JS Object structure
 Tie boxes to hihats
 Web Audio stuff - actual drum machine functionality
 Loop feature
 Off accent beat patterns
+Add click animation to buttons
 
 # Cascading Style Sheets
-Hover enlarge flex fix
 IO box styling
 Off accent patterns UI
 Individual box mod section
+Remove dotted border on button focus
 
 # Hypertext Markup Language
 HTML div structures
 Overlapping title fix padding
-BPM number toggle
-Keyboard control - tie numbers to boxes
 Keyboard control - navigate boxes with arrows
 Multiple sequence rows
 
@@ -30,4 +30,6 @@ FX section
 Modulation channels on sequencer
 Polyrythm channel overlaps
 Scrolling channel view
-Add channels like tracks
+Off accent pop up menu + special animations
+Add new channels like tracks
+Envelope control - add to animation

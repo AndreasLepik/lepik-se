@@ -252,7 +252,7 @@ body {
 }
 
 ::-moz-selection {
-  background: black;
+  background: rgb(49, 49, 49);;
   color: white;
 }
 
@@ -272,6 +272,15 @@ h1, h2 {
 
 h2 {
   font-size: 1em;
+}
+
+a {
+  color: #79CEB1;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.75;
 }
 
 .page-wrap {
@@ -295,6 +304,7 @@ h2 {
   -webkit-transition: 0.5s ease all;
 }
 
+/* Hacky title animation on hover */
 .right:hover {
   font-size: 4.1rem;
 }
@@ -318,6 +328,14 @@ h2 {
   text-align: center;
 }
 
+/* Uniform appereance on focus */
+.checkbox-row input[type='checkbox']:focus + label,
+input:focus,
+button:focus {
+  background: rgb(100, 100, 100);
+  scale: 1.05;
+}
+
 .checkbox-row {
   min-height: 53px;
   align-items: center;
@@ -325,9 +343,10 @@ h2 {
   justify-content: space-between;
 }
 
-/* Hide the default checkbox */
+/* Hide the default checkbox outside window to still be focusable */
 input[type='checkbox'] {
-  display: none;
+  position: absolute;
+  left: -100px;
 }
 
 /* Draw custom checkbox */
@@ -335,12 +354,6 @@ input[type='checkbox'] {
   width: 50px;
   height: 50px;
   display: block;
-  /* position: relative; */
-  /* margin: auto; */
-  /* box-sizing: border-box; */
-  /* -webkit-box-sizing: border-box; */
-  /* -moz-box-sizing: border-box; */
-  /* text-indent: -999px; */
   /* overflow: hidden; */
   background:transparent;
   border: 1px solid white;
@@ -352,12 +365,15 @@ input[type='checkbox'] {
 
 .checkbox-row input[type='checkbox']:hover + label {
   background: rgb(114, 114, 114);
-  width: 53px;
-  height: 53px;
+  scale: 1.05;
 }
 
 .checkbox-row input[type='checkbox']:checked + label {
   background: white;
+}
+
+.checkbox-row input[type='checkbox']:checked:focus + label {
+  scale: 1.1;
 }
 
 
@@ -429,15 +445,6 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-a {
-  color: #79CEB1;
-  transition: opacity 0.2s ease;
-}
-
-a:hover {
-  opacity: 0.75;
 }
 
 @media only screen and (min-width: 420px) {

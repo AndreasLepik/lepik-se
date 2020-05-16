@@ -1,6 +1,7 @@
 // @ts-check
 /**
- * Script containing logic for drum machine in lepik.se
+ * UI logic for drumBOT on lepik.se
+ * Written by Andreas Lepik
  */
 
 // Global variables
@@ -38,9 +39,12 @@ document.addEventListener('keyup', keyboardShortcuts)
 // Function definitions
 
 function keyboardShortcuts(e) {
+    if (document.activeElement == tempoInput)
+        return;
     const keyVal = e.which;
     if (keyVal >= 49 && keyVal <= 56) {
         const i = keyVal - 49;
+        checkboxRow0[i].focus();
         checkboxRow0[i].click();
     }
 }
