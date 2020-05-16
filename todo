@@ -8,12 +8,11 @@ Tie boxes to hihats
 Web Audio stuff - actual drum machine functionality
 Loop feature
 Off accent beat patterns
-Scrap chatbot function
 
 # Cascading Style Sheets
 Hover enlarge flex fix
 IO box styling
-Beat patterns UI
+Off accent patterns UI
 Individual box mod section
 
 # Hypertext Markup Language
@@ -29,4 +28,6 @@ Multiple sequence lengths
 Keyboard control - combination keys ex. [shift + 1]
 FX section
 Modulation channels on sequencer
+Polyrythm channel overlaps
 Scrolling channel view
+Add channels like tracks
