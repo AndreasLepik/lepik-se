@@ -1,6 +1,5 @@
 ### TODO - lepik.se ###
 
-
 ## DrumBOT
 # JavaScript
 JS file structure
@@ -10,12 +9,12 @@ Web Audio stuff - actual drum machine functionality
 Loop feature
 Off accent beat patterns
 Add click animation to buttons
+Add loading screen?
 
 # Cascading Style Sheets
 IO box styling
 Off accent patterns UI
 Individual box mod section
-Remove dotted border on button focus
 
 # Hypertext Markup Language
 HTML div structures

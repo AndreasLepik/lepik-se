@@ -203,14 +203,15 @@ button::-moz-focus-inner,
 
 /**
  * Restore the focus styles unset by the previous rule.
+ * Didn't want that outline...
  */
 
-button:-moz-focusring,
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
+/* button:-moz-focusring, */
+/* [type='button']:-moz-focusring, */
+/* [type='reset']:-moz-focusring, */
+/* [type='submit']:-moz-focusring { */
+  /* outline: 1px dotted ButtonText; */
+/* } */
 
 /*
  * Remove the default vertical scrollbar in IE 10+.
@@ -360,6 +361,12 @@ input[type='checkbox'] {
   transition: 0.5s ease all;
   -moz-transition: 0.5s ease all;
   -webkit-transition: 0.5s ease all;
+  /* Fix blurry transition */
+  -webkit-backface-visibility: hidden; 
+  -ms-transform: translateZ(0); /* IE 9 */
+  -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
+  transform: translateZ(0);
+
   cursor: pointer;
 }
 
@@ -405,6 +412,11 @@ button {
   padding: 5px 10px;
   /* margin: 5px; */
   transition: 0.5s ease all;
+  /* Fix for blurry transition */
+  -webkit-backface-visibility: hidden; 
+  -ms-transform: translateZ(0); /* IE 9 */
+  -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
+  transform: translateZ(0);  
 }
 
 button:hover {
@@ -412,6 +424,7 @@ button:hover {
 }
 
 button:active {
+  outline: none;
   animation: button-click ease 0.3s;
 }
 
@@ -430,6 +443,12 @@ button:active {
   color: white;
   width: 3em;
   -moz-appearance: textfield;
+  transition: 0.5s ease all;
+  /* Fix for blurry transition */
+  -webkit-backface-visibility: hidden; 
+  -ms-transform: translateZ(0); /* IE 9 */
+  -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
+  transform: translateZ(0);  
 }
 
 #input-tempo:focus {
