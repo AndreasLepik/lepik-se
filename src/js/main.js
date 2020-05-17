@@ -42,6 +42,7 @@ function keyboardShortcuts(e) {
     if (document.activeElement == tempoInput)
         return;
     const keyVal = e.which;
+    // 1 to 8
     if (keyVal >= 49 && keyVal <= 56) {
         const i = keyVal - 49;
         checkboxRow0[i].focus();

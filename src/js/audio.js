@@ -20,7 +20,7 @@ function hatzzz() {
     var time = audioContext.currentTime;
     playSound(soundBuffers[0], time);
     playSound(soundBuffers[0], time + beatLength);
-    playSound(soundBuffers[0], time + beatLength * 1.66);
+    playSound(soundBuffers[0], time + beatLength * 1.66);    
     playSound(soundBuffers[0], time + beatLength * 2);
     playSound(soundBuffers[0], time + beatLength * 3);
     playSound(soundBuffers[0], time + beatLength * 3.66);
