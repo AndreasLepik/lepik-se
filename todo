@@ -2,8 +2,7 @@
 
 ## DrumBOT
 # JavaScript
-JS file structure
-JS Object structure
+JS Object structure for UI I think
 Tie boxes to hihats
 Web Audio stuff - actual drum machine functionality
 Loop feature
@@ -15,10 +14,10 @@ Add loading screen?
 IO box styling
 Off accent patterns UI
 Individual box mod section
+Overlapping title fix padding
 
 # Hypertext Markup Language
 HTML div structures
-Overlapping title fix padding
 Keyboard control - navigate boxes with arrows
 Multiple sequence rows
 

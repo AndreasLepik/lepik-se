@@ -1,6 +1,6 @@
 // @ts-check
 /**
- * UI logic for drumBOT on lepik.se
+ * UI logic for drumBOT at lepik.se
  * Written by Andreas Lepik
  */
 import * as Audio from "./audio-control.js";
