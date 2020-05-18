@@ -2,6 +2,7 @@
  * Audio control for drumBOT on lepik.se
  * Written by Andreas Lepik
  */
+export { hatzzz, setTempo }
 
 var audioContext;
 var soundBuffers = [];

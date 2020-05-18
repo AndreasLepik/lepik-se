@@ -3,6 +3,8 @@
  * UI logic for drumBOT on lepik.se
  * Written by Andreas Lepik
  */
+import * as soundModule from "./audio.js";
+
 
 // Global variables
 
@@ -12,7 +14,7 @@ const numberOfCols =    8;
 const tempoInput =      document.getElementById("input-tempo");
 const playButton =      document.getElementById("play");
 const output =          document.getElementById("outputText");
-const checkboxRow0 = [ // TODO - FIX THIS GET MESS
+const row0 = [ // TODO - FIX THIS GET MESS
     document.getElementById("box00"),
     document.getElementById("box01"),
     document.getElementById("box02"),
@@ -25,7 +27,7 @@ const checkboxRow0 = [ // TODO - FIX THIS GET MESS
 
 // Link elements to functions
 
-playButton.addEventListener('click', hatzzz);
+playButton.addEventListener('click', soundModule.hatzzz);
 tempoInput.addEventListener('change', changeTempo)
 document.addEventListener('keyup', keyboardShortcuts)
 // document.getElementById("inputButton").addEventListener('click', readAction);
@@ -45,8 +47,8 @@ function keyboardShortcuts(e) {
     // 1 to 8
     if (keyVal >= 49 && keyVal <= 56) {
         const i = keyVal - 49;
-        checkboxRow0[i].focus();
-        checkboxRow0[i].click();
+        row0[i].focus();
+        row0[i].click();
     }
 }
 
@@ -56,7 +58,7 @@ function changeTempo() {
         writeToOutput("Can't groove without a tempo, brother.");
         return;
     }
-    const t = setTempo(tempo);
+    const t = soundModule.setTempo(tempo);
     if (t != -1) 
         writeToOutput("New tempo: " + t + " bpm.");
     else
