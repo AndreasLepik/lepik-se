@@ -3,7 +3,7 @@
  * UI logic for drumBOT on lepik.se
  * Written by Andreas Lepik
  */
-import * as soundModule from "./audio.js";
+import * as Audio from "./audio-control.js";
 
 
 // Global variables
@@ -27,7 +27,7 @@ const row0 = [ // TODO - FIX THIS GET MESS
 
 // Link elements to functions
 
-playButton.addEventListener('click', soundModule.hatzzz);
+playButton.addEventListener('click', Audio.hatzzz);
 tempoInput.addEventListener('change', changeTempo)
 document.addEventListener('keyup', keyboardShortcuts)
 // document.getElementById("inputButton").addEventListener('click', readAction);
@@ -58,13 +58,13 @@ function changeTempo() {
         writeToOutput("Can't groove without a tempo, brother.");
         return;
     }
-    const t = soundModule.setTempo(tempo);
+    const t = Audio.setTempo(tempo);
     if (t != -1) 
         writeToOutput("New tempo: " + t + " bpm.");
     else
         writeToOutput("Invalid tempo " + tempo + "!");
     if (tempo.length == 0)
-        tempoInput.value = '120';
+        tempoInput.value = '175';
 }
 
 function writeToOutput(text) {

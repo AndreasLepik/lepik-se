@@ -1,34 +1,18 @@
 /**
- * Audio control for drumBOT on lepik.se
+ * Module responsible for the audio playing in drumBOT at lepik.se
  * Written by Andreas Lepik
  */
-export { hatzzz, setTempo }
+export { playSounds }
 
 var audioContext;
 var soundBuffers = [];
 var soundLinks = ["sounds/hihat.wav"];
-var bpm = 175;
-var beatLength = 60.0 / bpm;
 
 window.addEventListener('load', init, false);
 
 function init() {
     audioContext = new AudioContext();
     loadSounds(soundLinks);
-}
-
-function hatzzz() {
-    var time = audioContext.currentTime;
-    playSound(soundBuffers[0], time);
-    playSound(soundBuffers[0], time + beatLength);
-    playSound(soundBuffers[0], time + beatLength * 1.66);    
-    playSound(soundBuffers[0], time + beatLength * 2);
-    playSound(soundBuffers[0], time + beatLength * 3);
-    playSound(soundBuffers[0], time + beatLength * 3.66);
-    playSound(soundBuffers[0], time + beatLength * 4);
-    playSound(soundBuffers[0], time + beatLength * 4.66);
-    playSound(soundBuffers[0], time + beatLength * 5);
-    playSound(soundBuffers[0], time + beatLength * 6);
 }
 
 function loadSounds(links) {
@@ -50,20 +34,15 @@ function loadSound(link, bufferIndex) {
     request.send();
 }
 
-function playSound(buffer, time) {
-    var source = audioContext.createBufferSource();
-    source.buffer = buffer;
-    source.connect(audioContext.destination);
-    source.start(time);
+function playSounds(index, times) {
+    const current = audioContext.currentTime;
+    times.forEach(
+        t => playSound(index, current + t));
 }
 
-function setTempo(tempo) {
-    const t = Number(tempo);
-    if (t >= 50 && t <= 300) {
-        bpm = t;
-        beatLength = 60.0 / t;
-        return t;
-    } else {
-        return -1;
-    }
+function playSound(index, time) {
+    var source = audioContext.createBufferSource();
+    source.buffer = soundBuffers[index];
+    source.connect(audioContext.destination);
+    source.start(time);
 }
