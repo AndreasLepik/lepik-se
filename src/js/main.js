@@ -30,13 +30,7 @@ const row0 = [ // TODO - FIX THIS GET MESS
 playButton.addEventListener('click', Audio.hatzzz);
 tempoInput.addEventListener('change', changeTempo)
 document.addEventListener('keyup', keyboardShortcuts)
-// document.getElementById("inputButton").addEventListener('click', readAction);
-// textBox.addEventListener('keyup', function (event) {
-//     if (event.keyCode == 13) {
-//         event.preventDefault();
-//         document.getElementById("play").click();
-//     }
-// });
+
 
 // Function definitions
 
