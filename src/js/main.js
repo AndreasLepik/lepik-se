@@ -27,7 +27,7 @@ const row0 = [ // TODO - FIX THIS GET MESS
 
 // Link elements to functions
 
-playButton.addEventListener('click', Audio.hatzzz);
+playButton.addEventListener('click', playOnce);
 tempoInput.addEventListener('change', changeTempo)
 document.addEventListener('keyup', keyboardShortcuts)
 
@@ -44,6 +44,12 @@ function keyboardShortcuts(e) {
         row0[i].focus();
         row0[i].click();
     }
+}
+
+function playOnce() {
+    const tickedBoxes = row0.map(cb => cb.checked);
+    // tickedBoxes.forEach(e => console.log(e))
+    Audio.hatzzz(tickedBoxes);
 }
 
 function changeTempo() {
@@ -67,8 +73,4 @@ function writeToOutput(text) {
 
 function invalidAction(input) {
     writeToOutput("Invalid action: " + input);
-}
-
-function logEcho(text) {
-    console.log(text);
 }

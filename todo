@@ -3,15 +3,18 @@
 ## DrumBOT
 # JavaScript
 JS Object structure for UI I think
-Tie boxes to hihats
 Web Audio stuff - actual drum machine functionality
+Give checkbox -> notes convertion its own function
 Loop feature
 Off accent beat patterns
 Add click animation to buttons
 Add loading screen?
+Solo current channel
+A bunch of keyboard shortcuts
 
 # Cascading Style Sheets
 IO box styling
+Focus current channel
 Off accent patterns UI
 Individual box mod section
 Overlapping title fix padding

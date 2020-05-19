@@ -8,7 +8,7 @@ export { hatzzz, setTempo }
 var bpm = 175;
 var beatLength = 60.0 / bpm;
 
-function hatzzz() {
+function hatzzz(tickedBoxes) {
     const times = [
         0,
         beatLength,
@@ -21,7 +21,16 @@ function hatzzz() {
         beatLength * 5,
         beatLength * 6
     ]
-    AudioModule.playSounds(0, times);
+    tickedBoxes.forEach(element => {
+        console.log(element)
+    });
+    var activeTimes = [];
+    for (var i = 0; i < tickedBoxes.length; i++) {
+        if (tickedBoxes[i]) {
+            activeTimes.push(times[i]);
+        }
+    }
+    AudioModule.playSounds(0, activeTimes);
 }
 
 function setTempo(tempo) {
