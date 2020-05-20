@@ -21,16 +21,13 @@ function hatzzz(tickedBoxes) {
         beatLength * 5,
         beatLength * 6
     ]
-    tickedBoxes.forEach(element => {
-        console.log(element)
-    });
     var activeTimes = [];
     for (var i = 0; i < tickedBoxes.length; i++) {
         if (tickedBoxes[i]) {
             activeTimes.push(times[i]);
         }
     }
-    AudioModule.playSounds(0, activeTimes);
+    AudioModule.playSounds("hihat", activeTimes);
 }
 
 function setTempo(tempo) {

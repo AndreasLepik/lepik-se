@@ -4,14 +4,14 @@
  */
 export { playSounds }
 
-var audioContext;
-var soundBuffers = [];
-var soundLinks = ["sounds/hihat.wav"];
+const audioContext = new AudioContext();
+const soundBuffers = [];
+const soundLinks = ["sounds/hihat.wav"];
+const soundNames = new Map([["hihat", 0]]);
 
 window.addEventListener('load', init, false);
 
 function init() {
-    audioContext = new AudioContext();
     loadSounds(soundLinks);
 }
 
@@ -34,7 +34,8 @@ function loadSound(link, bufferIndex) {
     request.send();
 }
 
-function playSounds(index, times) {
+function playSounds(key, times) {
+    const index = soundNames.get(key);
     const current = audioContext.currentTime;
     times.forEach(
         t => playSound(index, current + t));
