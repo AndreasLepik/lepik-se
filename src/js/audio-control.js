@@ -8,26 +8,43 @@ export { hatzzz, setTempo }
 var bpm = 175;
 var beatLength = 60.0 / bpm;
 
-function hatzzz(tickedBoxes) {
-    const times = [
-        0,
-        beatLength,
-        beatLength * 1.66,
-        beatLength * 2,
-        beatLength * 3,
-        beatLength * 3.66,
-        beatLength * 4,
-        beatLength * 4.66,
-        beatLength * 5,
-        beatLength * 6
-    ]
-    var activeTimes = [];
-    for (var i = 0; i < tickedBoxes.length; i++) {
-        if (tickedBoxes[i]) {
-            activeTimes.push(times[i]);
+var currentPatterns = [
+    [true],
+    [true, false, true],
+    [true],
+    [true, false, true],
+    [true, false, true],
+    [true],
+    [true],
+    [true]
+]
+
+function hatzzz(checkedBoxes) {
+    var activeTimes = generateSequence(checkedBoxes);
+    AudioModule.playSounds("hihat", activeTimes);
+}
+
+function generateSequence(checkedBoxes) {
+    var res = [];
+    for (var i = 0; i < checkedBoxes.length; i++) {
+        if (checkedBoxes[i]) {
+            res = res.concat(
+                renderRatioPattern(currentPatterns[i])
+                .map(e => beatLength * (e + i)));
         }
     }
-    AudioModule.playSounds("hihat", activeTimes);
+    return res;
+}
+
+function renderRatioPattern(pattern) {
+    const n = pattern.length;
+    var res = [];
+    for (var i = 0; i < n; i++) {
+        if (pattern[i]) {
+            res.push(i / n);
+        }
+    }
+    return res;
 }
 
 function setTempo(tempo) {

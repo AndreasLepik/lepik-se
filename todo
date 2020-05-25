@@ -4,9 +4,8 @@
 # JavaScript
 JS Object structure for UI I think
 Web Audio stuff - actual drum machine functionality
-Give checkbox -> notes convertion its own function
+Type checks to give good errors?
 Loop feature
-Off accent beat patterns
 Add click animation to buttons
 Add loading screen?
 Solo current channel
@@ -15,9 +14,10 @@ A bunch of keyboard shortcuts
 # Cascading Style Sheets
 IO box styling
 Focus current channel
-Off accent patterns UI
+Patterns UI
 Individual box mod section
 Overlapping title fix padding
+Different fill pattern based on off beat pattern
 
 # Hypertext Markup Language
 HTML div structures
