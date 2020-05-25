@@ -250,6 +250,7 @@ body {
   align-items: center;
   min-height: 100%;
   font-size: 1.25em;
+  overflow: hidden; /* Hide scrollbar */
 }
 
 ::-moz-selection {
@@ -287,7 +288,7 @@ a:hover {
 .page-wrap {
   width: 45rem;
   max-width: 90%;
-  margin: 2em auto;
+  margin: .5em auto;
   padding-bottom: 5%;
 }
 
@@ -342,6 +343,7 @@ button:focus {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 3%;
 }
 
 /* Hide the default checkbox outside window to still be focusable */
