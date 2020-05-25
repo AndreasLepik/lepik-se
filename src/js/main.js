@@ -41,8 +41,10 @@ function keyboardShortcuts(e) {
     // 1 to 8
     if (keyVal >= 49 && keyVal <= 56) {
         const i = keyVal - 49;
-        row0[i].focus();
-        row0[i].click();
+        if (row0[i] == document.activeElement)
+            row0[i].click();
+        else
+            row0[i].focus();
     }
 }
 
