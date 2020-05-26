@@ -352,10 +352,16 @@ input[type='checkbox'] {
   left: -100px;
 }
 
-/* Draw custom checkbox */
+/* Custom size for checkboxes in matrix */
 .checkbox-row input[type='checkbox'] + label {
   width: 50px;
   height: 50px;
+}
+
+/* Draw custom checkbox for general purpose */
+input[type='checkbox'] + label {
+  width: 30px;
+  height: 30px;
   display: block;
   /* overflow: hidden; */
   background:transparent;
@@ -368,23 +374,40 @@ input[type='checkbox'] {
   -ms-transform: translateZ(0); /* IE 9 */
   -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
   transform: translateZ(0);
-
   cursor: pointer;
+  text-align: center;
+  margin: 1px;
+}
+
+input[type='checkbox']:hover + label {
+  background: rgb(114, 114, 114);
+}
+
+input[type='checkbox']:checked + label {
+  background: white;
 }
 
 .checkbox-row input[type='checkbox']:hover + label {
-  background: rgb(114, 114, 114);
   scale: 1.05;
-}
-
-.checkbox-row input[type='checkbox']:checked + label {
-  background: white;
 }
 
 .checkbox-row input[type='checkbox']:checked:focus + label {
   scale: 1.1;
+  background: white;
 }
 
+.sub-pattern-box {
+  display: inline-flex;
+  /* padding: 5px; */
+}
+
+.sub-pattern-box input[type='checkbox'] + label,
+.sub-pattern-box label,
+.sub-pattern-box input {
+  height: 30px;
+  margin-right: 10px;
+  margin-top: 0px;
+}
 
 /* Visualize boxes in small windows. */
 @media (max-width: 60em) {
@@ -403,6 +426,10 @@ input[type='checkbox'] {
   h1 {
     background-color: rgb(255, 151, 113);
   }
+
+  .sub-pattern-box {
+    background: lightblue;
+  }  
 }
 
 /* Buttons */
@@ -438,7 +465,7 @@ button:active {
 
 /* Numberbox input */
 
-#input-tempo {
+input[type='number'] {
   background: none;
   border: 1px solid white;
   padding: 4px 5px;
@@ -453,12 +480,12 @@ button:active {
   transform: translateZ(0);  
 }
 
-#input-tempo:focus {
+input[type='number']:focus {
   caret-color: transparent;
   background: rgb(100, 100, 100);
 }
 
-#input-tempo:invalid {
+input[type='number']:invalid {
   background: black;
 }
 /* Remove arrows */
