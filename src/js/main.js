@@ -8,7 +8,7 @@ import * as Audio from "./audio-control.js";
 
 // Global variables
 
-const numberOfRows =    1;
+const numberOfRows =    3;
 const numberOfCols =    8;
 
 const tempoInput =      document.getElementById("input-tempo");
@@ -24,6 +24,27 @@ const row0 = [ // TODO - FIX THIS GET MESS
     document.getElementById("box06"),
     document.getElementById("box07")
 ]
+const row1 = [ // TODO - FIX THIS GET MESS
+    document.getElementById("box10"),
+    document.getElementById("box11"),
+    document.getElementById("box12"),
+    document.getElementById("box13"),
+    document.getElementById("box14"),
+    document.getElementById("box15"),
+    document.getElementById("box16"),
+    document.getElementById("box17")
+]
+const row2 = [ // TODO - FIX THIS GET MESS
+    document.getElementById("box20"),
+    document.getElementById("box21"),
+    document.getElementById("box22"),
+    document.getElementById("box23"),
+    document.getElementById("box24"),
+    document.getElementById("box25"),
+    document.getElementById("box26"),
+    document.getElementById("box27")
+]
+const checkBoxMatrix = [row0, row1, row2]
 
 // Link elements to functions
 
@@ -49,9 +70,15 @@ function keyboardShortcuts(e) {
 }
 
 function playOnce() {
-    const tickedBoxes = row0.map(cb => cb.checked);
+    // const tickedBoxes = row0.map(cb => cb.checked);
     // tickedBoxes.forEach(e => console.log(e))
-    Audio.hatzzz(tickedBoxes);
+    // Audio.hatzzz(tickedBoxes);
+    const tickedBoxes = checkBoxMatrix.map(
+        row => row.map(
+            cb => cb.checked
+        )
+    );
+    Audio.playMatrix(tickedBoxes);
 }
 
 function changeTempo() {

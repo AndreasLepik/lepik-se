@@ -3,25 +3,25 @@
  * Written by Andreas Lepik
  */
 import * as AudioModule from "./audio.js";
-export { hatzzz, setTempo }
+export { setTempo, playMatrix }
 
 var bpm = 175;
 var beatLength = 60.0 / bpm;
 
 var currentPatterns = [
     [true],
-    [true, false, true],
     [true],
-    [true, false, true],
-    [true, false, true],
+    [true],
+    [true],
+    [true],
     [true],
     [true],
     [true]
 ]
 
-function hatzzz(checkedBoxes) {
-    var activeTimes = generateSequence(checkedBoxes);
-    AudioModule.playSounds("hihat", activeTimes);
+function playMatrix(checkBoxMatrix) {
+    const activeTimes = checkBoxMatrix.map(row => generateSequence(row));
+    AudioModule.playSounds(activeTimes);
 }
 
 function generateSequence(checkedBoxes) {

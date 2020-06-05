@@ -6,8 +6,8 @@ export { playSounds }
 
 const audioContext = new AudioContext();
 const soundBuffers = [];
-const soundLinks = ["sounds/hihat.wav"];
-const soundNames = new Map([["hihat", 0]]);
+const soundLinks = ["sounds/hihat.wav", "sounds/snare.wav", "sounds/kick.wav"];
+const soundNames = new Map([["hihat", 0], ["snare", 1], ["kick", 2]]);
 
 window.addEventListener('load', init, false);
 
@@ -34,11 +34,13 @@ function loadSound(link, bufferIndex) {
     request.send();
 }
 
-function playSounds(key, times) {
-    const index = soundNames.get(key);
+function playSounds(timeMatrix) {
     const current = audioContext.currentTime;
-    times.forEach(
-        t => playSound(index, current + t));
+    for (var i = 0; i < timeMatrix.length; i++) {
+        timeMatrix[i].forEach(
+            time => playSound(i, current + time)
+        );
+    }
 }
 
 function playSound(index, time) {
