@@ -6,12 +6,13 @@ JS Object structure for UI I think
 Web Audio stuff - actual drum machine functionality
 Type checks to give good errors?
 Loop feature
-Add click animation to buttons
+Animation structure for checkboxes
 Add loading screen?
 Solo current channel
 A bunch of keyboard shortcuts
 
 # Cascading Style Sheets
+Fix tiny text alignment
 IO box styling
 Focus current channel
 Patterns UI
@@ -22,14 +23,14 @@ Different fill pattern based on off beat pattern
 # Hypertext Markup Language
 HTML div structures
 Keyboard control - navigate boxes with arrows
-Multiple sequence rows
 
 # Waaay down the road
+Two boxes -> triplets
 Multiple sequence lengths
 Keyboard control - combination keys ex. [shift + 1]
 FX section
 Modulation channels on sequencer
-Polyrythm channel overlaps
+Polyrythmic sub channel - either same or different sample
 Scrolling channel view
 Off accent pop up menu + special animations
 Add new channels like tracks
