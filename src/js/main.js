@@ -49,9 +49,14 @@ const checkBoxMatrix = [row0, row1, row2]
 // Link elements to functions
 
 playButton.addEventListener('click', playOnce);
-tempoInput.addEventListener('change', changeTempo)
-document.addEventListener('keyup', keyboardShortcuts)
+tempoInput.addEventListener('change', changeTempo);
+document.addEventListener('keyup', keyboardShortcuts);
 
+checkBoxMatrix.forEach(
+    row => row.forEach(
+        cb => cb.addEventListener('focus', focusRow)
+    )
+);
 
 // Function definitions
 
@@ -69,10 +74,15 @@ function keyboardShortcuts(e) {
     }
 }
 
+function focusRow() {
+    const row = document.activeElement.parentNode;
+    checkBoxMatrix.forEach(
+        row => row[0].parentNode.style.setProperty('--row-focus', 'none')
+    );
+    row.style.setProperty('--row-focus', '2px solid white');
+}
+
 function playOnce() {
-    // const tickedBoxes = row0.map(cb => cb.checked);
-    // tickedBoxes.forEach(e => console.log(e))
-    // Audio.hatzzz(tickedBoxes);
     const tickedBoxes = checkBoxMatrix.map(
         row => row.map(
             cb => cb.checked

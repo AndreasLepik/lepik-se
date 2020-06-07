@@ -230,6 +230,8 @@ textarea {
   --grey-med-focus: rgb(120, 120 , 120);
   --grey-dark: rgb(100, 100, 100);
   --grey-darker: rgb(49, 49, 49);
+
+  --row-focus: none;
 }
 
 * {
@@ -352,7 +354,7 @@ button:focus {
   padding: 2%;
   /* background: var(--grey-med-focus); */
   /* border: 1px solid white; */
-  border-left: 2px solid white;
+  border-left: var(--row-focus);
   border-radius: 2px;
 }
 
@@ -360,7 +362,7 @@ button:focus {
 .checkbox-row ~ .checkbox-row {
   padding-top: none;
   background: transparent;
-  border: none;
+  /* border: none; */
 }
 
 /* Hide the default checkbox outside window to still be focusable */
@@ -432,7 +434,7 @@ input[type='checkbox']:checked + label {
 
 .checkbox-matrix {
   /* border: 2px solid var(--grey-med-focus); */
-  background: var(--grey-med-focus);
+  background: var(--grey-dark);
   border-radius: 2px;
 }
 
