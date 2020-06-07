@@ -3,7 +3,8 @@
 ## DrumBOT
 # JavaScript
 JS Object structure for UI I think
-Web Audio stuff - actual drum machine functionality
+UML for modules
+Matrix handling in modules
 Type checks to give good errors?
 Loop feature
 Animation structure for checkboxes
@@ -16,13 +17,11 @@ Fix tiny text alignment
 IO box styling
 Focus current channel
 Patterns UI
-Individual box mod section
 Overlapping title fix padding
 Different fill pattern based on off beat pattern
 
 # Hypertext Markup Language
 HTML div structures
-Keyboard control - navigate boxes with arrows
 
 # Waaay down the road
 Two boxes -> triplets

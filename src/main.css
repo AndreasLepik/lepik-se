@@ -227,6 +227,7 @@ textarea {
 /* Define global variables */
 :root {
   --grey-med: rgb(129, 129, 129);
+  --grey-med-focus: rgb(120, 120 , 120);
   --grey-dark: rgb(100, 100, 100);
   --grey-darker: rgb(49, 49, 49);
 }
@@ -338,7 +339,6 @@ a:hover {
 }
 
 /* Uniform appereance on focus */
-.checkbox-row input[type='checkbox']:focus + label,
 input:focus,
 button:focus {
   background: var(--grey-dark);
@@ -349,14 +349,18 @@ button:focus {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-right: 2%;
-  padding-left: 2%;
+  padding: 2%;
+  /* background: var(--grey-med-focus); */
+  /* border: 1px solid white; */
+  border-left: 2px solid white;
+  border-radius: 2px;
 }
 
+/* Remove top padding from all rows except first one */
 .checkbox-row ~ .checkbox-row {
   padding-top: none;
+  background: transparent;
+  border: none;
 }
 
 /* Hide the default checkbox outside window to still be focusable */
@@ -392,6 +396,7 @@ input[type='checkbox'] + label {
   margin: 1px;
 }
 
+
 input[type='checkbox']:hover + label {
   background: var(--grey-dark);
 }
@@ -404,8 +409,11 @@ input[type='checkbox']:checked + label {
   scale: 1.05;
 }
 
+.checkbox-row input[type='checkbox']:focus + label {
+  scale: 1.2;
+}
+
 .checkbox-row input[type='checkbox']:checked:focus + label {
-  scale: 1.1;
   background: white;
 }
 
@@ -423,9 +431,9 @@ input[type='checkbox']:checked + label {
 }
 
 .checkbox-matrix {
-  /* border: 1px solid white; */
-  background: rgb(100, 100, 100);
-
+  /* border: 2px solid var(--grey-med-focus); */
+  background: var(--grey-med-focus);
+  border-radius: 2px;
 }
 
 label {
