@@ -14,49 +14,33 @@ const numberOfCols =    8;
 const tempoInput =      document.getElementById("input-tempo");
 const playButton =      document.getElementById("play");
 const output =          document.getElementById("outputText");
-const row0 = [ // TODO - FIX THIS GET MESS
-    document.getElementById("box00"),
-    document.getElementById("box01"),
-    document.getElementById("box02"),
-    document.getElementById("box03"),
-    document.getElementById("box04"),
-    document.getElementById("box05"),
-    document.getElementById("box06"),
-    document.getElementById("box07")
-]
-const row1 = [ // TODO - FIX THIS GET MESS
-    document.getElementById("box10"),
-    document.getElementById("box11"),
-    document.getElementById("box12"),
-    document.getElementById("box13"),
-    document.getElementById("box14"),
-    document.getElementById("box15"),
-    document.getElementById("box16"),
-    document.getElementById("box17")
-]
-const row2 = [ // TODO - FIX THIS GET MESS
-    document.getElementById("box20"),
-    document.getElementById("box21"),
-    document.getElementById("box22"),
-    document.getElementById("box23"),
-    document.getElementById("box24"),
-    document.getElementById("box25"),
-    document.getElementById("box26"),
-    document.getElementById("box27")
-]
-const checkBoxMatrix = [row0, row1, row2]
+const row0 =            document.getElementById("row0");
+const row1 =            document.getElementById("row1");
+const row2 =            document.getElementById("row2");
+var checkBoxMatrix = [];
+for (var i = 0; i < numberOfRows; i++) {
+    checkBoxMatrix[i] = [];
+    for (var j = 0; j < numberOfCols; j++) {
+        checkBoxMatrix[i][j] = document.getElementById("box" + i + j);
+    }
+}
+
+var lastActiveElement = document.activeElement;
+var lastActiveRow =     row0;
 
 // Link elements to functions
 
 playButton.addEventListener('click', playOnce);
 tempoInput.addEventListener('change', changeTempo);
 document.addEventListener('keyup', keyboardShortcuts);
+window.addEventListener('focus', changedFocus, true);
 
-checkBoxMatrix.forEach(
-    row => row.forEach(
-        cb => cb.addEventListener('focus', focusRow)
-    )
-);
+// checkBoxMatrix.forEach(
+    // row => row.forEach(
+        // cb => cb.addEventListener('focus', changedFocus)
+    // )
+// );
+
 
 // Function definitions
 
@@ -67,19 +51,20 @@ function keyboardShortcuts(e) {
     // 1 to 8
     if (keyVal >= 49 && keyVal <= 56) {
         const i = keyVal - 49;
-        if (row0[i] == document.activeElement)
-            row0[i].click();
+        if (checkBoxMatrix[0][i] == document.activeElement)
+            checkBoxMatrix[0][i].click();
         else
-            row0[i].focus();
+            checkBoxMatrix[0][i].focus();
     }
 }
 
-function focusRow() {
-    const row = document.activeElement.parentNode;
-    checkBoxMatrix.forEach(
-        row => row[0].parentNode.style.setProperty('--row-focus', 'none')
-    );
-    row.style.setProperty('--row-focus', '2px solid white');
+function changedFocus() {
+    const e = document.activeElement;
+    lastActiveRow.style.setProperty('--row-focus', 'none');
+    if (e.type == 'checkbox') {
+        lastActiveRow = e.parentNode;
+    }
+    e.parentNode.style.setProperty('--row-focus', '2px solid white');
 }
 
 function playOnce() {

@@ -305,6 +305,9 @@ a:hover {
 .overlap-text {
   font-weight: 900;
   font-size: 4rem;
+  padding: none;
+  margin: none;
+
 }
 
 .right {

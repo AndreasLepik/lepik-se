@@ -2,6 +2,7 @@
 
 ## DrumBOT
 # JavaScript
+Check types in focused
 JS Object structure for UI I think
 UML for modules
 Matrix handling in modules
@@ -14,10 +15,9 @@ A bunch of keyboard shortcuts
 
 # Cascading Style Sheets
 Fix tiny text alignment
+FIX TITLE PADDING
 IO box styling
-Focus current channel
 Patterns UI
-Overlapping title fix padding
 Different fill pattern based on off beat pattern
 
 # Hypertext Markup Language
