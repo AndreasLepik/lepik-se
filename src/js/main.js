@@ -28,6 +28,8 @@ for (var i = 0; i < numberOfRows; i++) {
 
 var lastActiveElement = document.activeElement;
 var lastActiveRow =     row0;
+var lastActiveIndex =   "00";
+var lastKeyVal =        49;
 
 // Link elements to functions
 
@@ -36,12 +38,6 @@ tempoInput.addEventListener('change', changeTempo);
 document.addEventListener('keyup', keyboardShortcuts);
 window.addEventListener('focus', changedFocus, true);
 window.addEventListener('load', init, false);
-
-// checkBoxMatrix.forEach(
-    // row => row.forEach(
-        // cb => cb.addEventListener('focus', changedFocus)
-    // )
-// );
 
 
 // Function definitions
@@ -58,11 +54,37 @@ function keyboardShortcuts(e) {
     const keyVal = e.which;
     // 1 to 8
     if (keyVal >= 49 && keyVal <= 56) {
-        const i = keyVal - 49;
-        if (checkBoxMatrix[0][i] == document.activeElement)
-            checkBoxMatrix[0][i].click();
-        else
-            checkBoxMatrix[0][i].focus();
+        var colIndex = keyVal - 49;
+        var rowIndex = rows.indexOf(lastActiveRow);
+        // check if row is changing
+        if (lastKeyVal == 82) {
+            rowIndex = colIndex;
+            colIndex = parseInt(lastActiveIndex[1]);
+        }
+        triggerCheckBox(rowIndex, colIndex);
+        lastKeyVal = keyVal;
+    }
+    // R
+    if (keyVal == 82) {
+        lastKeyVal = keyVal;
+    }
+}
+
+function triggerCheckBox(row, col) {
+    switch (row) {
+        case 'sub':
+            // handle sub pattern boxes
+        default:
+            // add check
+            const current = checkBoxMatrix[row][col];
+            if (current == lastActiveElement) {
+                current.click();
+            } else {
+                current.focus();
+                lastActiveElement = current;
+                lastActiveRow =     rows[row];
+                lastActiveIndex = "" + row + col;
+            }
     }
 }
 
@@ -71,6 +93,7 @@ function changedFocus() {
     lastActiveRow.style.setProperty('--row-focus', 'none');
     if (e.type == 'checkbox') {
         lastActiveRow = e.parentNode;
+        lastActiveIndex = e.id.replace("box", "");
     }
     e.parentNode.style.setProperty('--row-focus', '2px solid white');
 }
