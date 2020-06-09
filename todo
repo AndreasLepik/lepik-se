@@ -2,8 +2,9 @@
 
 ## DrumBOT
 # JavaScript
+Blinking boxes when playing
+Buttons in left corner, < ? GitH
 Check types in focused
-JS Object structure for UI I think
 UML for modules
 Matrix handling in modules
 Type checks to give good errors?
@@ -18,12 +19,12 @@ Fix tiny text alignment
 FIX TITLE PADDING
 IO box styling
 Patterns UI
-Different fill pattern based on off beat pattern
 
 # Hypertext Markup Language
 HTML div structures
 
 # Waaay down the road
+Different fill pattern based on off beat pattern
 Two boxes -> triplets
 Multiple sequence lengths
 Keyboard control - combination keys ex. [shift + 1]

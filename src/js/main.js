@@ -17,6 +17,7 @@ const output =          document.getElementById("outputText");
 const row0 =            document.getElementById("row0");
 const row1 =            document.getElementById("row1");
 const row2 =            document.getElementById("row2");
+const rows =            [row0, row1, row2];
 var checkBoxMatrix = [];
 for (var i = 0; i < numberOfRows; i++) {
     checkBoxMatrix[i] = [];
@@ -34,6 +35,7 @@ playButton.addEventListener('click', playOnce);
 tempoInput.addEventListener('change', changeTempo);
 document.addEventListener('keyup', keyboardShortcuts);
 window.addEventListener('focus', changedFocus, true);
+window.addEventListener('load', init, false);
 
 // checkBoxMatrix.forEach(
     // row => row.forEach(
@@ -43,6 +45,12 @@ window.addEventListener('focus', changedFocus, true);
 
 
 // Function definitions
+
+function init() {
+    rows.forEach(
+        r => r.style.setProperty('--row-focus', 'none')
+    );
+}
 
 function keyboardShortcuts(e) {
     if (document.activeElement == tempoInput)
