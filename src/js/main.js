@@ -49,9 +49,15 @@ function init() {
 }
 
 function keyboardShortcuts(e) {
-    if (document.activeElement == tempoInput)
-        return;
     const keyVal = e.which;
+    // focus is on a number input
+    if (document.activeElement.type == 'number') {
+        // blur the input on Enter, to reenable number navigation
+        if (keyVal == 13) {
+            document.activeElement.blur();
+        }
+        return;
+    }
     // 1 to 8
     if (keyVal >= 49 && keyVal <= 56) {
         var colIndex = keyVal - 49;
@@ -68,6 +74,7 @@ function keyboardShortcuts(e) {
     if (keyVal == 82) {
         lastKeyVal = keyVal;
     }
+    // 
 }
 
 function triggerCheckBox(row, col) {
