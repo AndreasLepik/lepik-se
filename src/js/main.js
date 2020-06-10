@@ -18,7 +18,13 @@ const row0 =            document.getElementById("row0");
 const row1 =            document.getElementById("row1");
 const row2 =            document.getElementById("row2");
 const rows =            [row0, row1, row2];
-var checkBoxMatrix = [];
+
+var subBoxes =          [];
+for (var i = 0; i < 4; i++) {
+    subBoxes[i] = document.getElementById("box-sub" + i);
+}
+
+var checkBoxMatrix =    [];
 for (var i = 0; i < numberOfRows; i++) {
     checkBoxMatrix[i] = [];
     for (var j = 0; j < numberOfCols; j++) {
@@ -26,10 +32,12 @@ for (var i = 0; i < numberOfRows; i++) {
     }
 }
 
+
 var lastActiveElement = document.activeElement;
 var lastActiveRow =     row0;
 var lastActiveIndex =   "00";
 var lastKeyVal =        49;
+
 
 // Link elements to functions
 
@@ -50,7 +58,7 @@ function init() {
 
 function keyboardShortcuts(e) {
     const keyVal = e.which;
-    // focus is on a number input
+    // check if focus is on a number input
     if (document.activeElement.type == 'number') {
         // blur the input on Enter, to reenable number navigation
         if (keyVal == 13) {
@@ -58,29 +66,66 @@ function keyboardShortcuts(e) {
         }
         return;
     }
-    // 1 to 8
-    if (keyVal >= 49 && keyVal <= 56) {
-        var colIndex = keyVal - 49;
-        var rowIndex = rows.indexOf(lastActiveRow);
-        // check if row is changing
-        if (lastKeyVal == 82) {
-            rowIndex = colIndex;
-            colIndex = parseInt(lastActiveIndex[1]);
-        }
-        triggerCheckBox(rowIndex, colIndex);
-        lastKeyVal = keyVal;
+
+    switch (keyVal) {
+        // 1 to 8 - navigate checkboxes
+        case 49:
+        case 50:
+        case 51:
+        case 52:
+        case 53:
+        case 54:
+        case 55:
+        case 56:
+            const currentNum = keyVal - 49;
+            var rowIndex;
+            var colIndex;
+            switch (lastKeyVal) {
+                // P - control sub pattern
+                case 80:
+                    rowIndex = 'sub';
+                    colIndex = currentNum;
+                    triggerCheckBox(rowIndex, colIndex);
+                    // Don't change lastKeyVal
+                    break;
+
+                // R - change row
+                case 82:
+                    rowIndex = currentNum;
+                    colIndex = parseInt(lastActiveIndex[1]);
+                    triggerCheckBox(rowIndex, colIndex);
+                    lastKeyVal = keyVal;
+                    break;
+
+                // change coloumn
+                default:
+                    colIndex = currentNum;
+                    rowIndex = rows.indexOf(lastActiveRow);
+                    triggerCheckBox(rowIndex, colIndex);
+                    lastKeyVal = keyVal;
+                    break;
+            }
+            break;
+        
+        // T - focus on tempoInput
+        case 84:
+            tempoInput.focus();
+            break;
+        
+        // R, P, Enter - await next number
+        case 82:
+        case 80:
+        case 13:
+            lastKeyVal = keyVal;
+            break;
     }
-    // R
-    if (keyVal == 82) {
-        lastKeyVal = keyVal;
-    }
-    // 
 }
 
 function triggerCheckBox(row, col) {
     switch (row) {
         case 'sub':
-            // handle sub pattern boxes
+            subBoxes[col].click();
+            break;
         default:
             // add check
             const current = checkBoxMatrix[row][col];
@@ -92,6 +137,7 @@ function triggerCheckBox(row, col) {
                 lastActiveRow =     rows[row];
                 lastActiveIndex = "" + row + col;
             }
+            break;
     }
 }
 
