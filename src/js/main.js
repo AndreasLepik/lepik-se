@@ -58,7 +58,6 @@ function init() {
 
 function keyboardShortcuts(e) {
     const keyVal = e.which;
-    // check if focus is on a number input
     if (document.activeElement.type == 'number') {
         // blur the input on Enter, to reenable number navigation
         if (keyVal == 13) {
@@ -81,8 +80,8 @@ function keyboardShortcuts(e) {
             var rowIndex;
             var colIndex;
             switch (lastKeyVal) {
-                // P - control sub pattern
-                case 80:
+                // D - divide, control sub pattern
+                case 68:
                     rowIndex = 'sub';
                     colIndex = currentNum;
                     triggerCheckBox(rowIndex, colIndex);
@@ -111,10 +110,14 @@ function keyboardShortcuts(e) {
         case 84:
             tempoInput.focus();
             break;
-        
-        // R, P, Enter - await next number
-        case 82:
+
+        // P - play
         case 80:
+            playOnce();    
+
+        // R, D, Enter - await next number
+        case 82:
+        case 68:
         case 13:
             lastKeyVal = keyVal;
             break;
