@@ -2,17 +2,16 @@
 
 ## DrumBOT
 # JavaScript
+SETUP TONEjs!!
 Blinking boxes when playing
-Buttons in left corner, < ? GitH
 Check types in focused
 UML for modules
 Matrix handling in modules
 Type checks to give good errors?
 Loop feature
 Animation structure for checkboxes
-Add loading screen?
+Add loading screen!
 Solo current channel
-A bunch of keyboard shortcuts
 
 # Cascading Style Sheets
 Fix tiny text alignment
@@ -21,7 +20,8 @@ IO box styling
 Patterns UI
 
 # Hypertext Markup Language
-HTML div structures
+Add icons and visual help as a row to the left
+Buttons in left corner, < ? GitH
 
 # Waaay down the road
 TypeScript?

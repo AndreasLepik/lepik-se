@@ -354,11 +354,13 @@ button:focus {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 2%;
+  padding: 1%;
+  padding-left: 2% ;
   /* background: var(--grey-med-focus); */
   /* border: 1px solid white; */
   border-left: var(--row-focus);
   border-radius: 2px;
+  border-width: 1px;
 }
 
 /* Remove top padding from all rows except first one */
@@ -416,6 +418,7 @@ input[type='checkbox']:checked + label {
 
 .checkbox-row input[type='checkbox']:focus + label {
   scale: 1.2;
+  background-color: var(--grey-dark);
 }
 
 .checkbox-row input[type='checkbox']:checked:focus + label {
@@ -437,13 +440,12 @@ input[type='checkbox']:checked + label {
 
 .checkbox-matrix {
   /* border: 2px solid var(--grey-med-focus); */
-  background: var(--grey-dark);
+  /* background: var(--grey-dark); */
   border-radius: 2px;
 }
 
 label {
   font-size: 0.5em;
-  /* align-items: center; */
 }
 
 /* Visualize boxes in small windows. */
