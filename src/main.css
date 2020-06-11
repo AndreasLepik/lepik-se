@@ -427,7 +427,11 @@ input[type='checkbox']:checked + label {
 
 .sub-pattern-box {
   display: inline-flex;
-  /* padding: 5px; */
+  padding: 2%;
+}
+
+.IO-box {
+  padding: 1%;
 }
 
 .sub-pattern-box input[type='checkbox'] + label,

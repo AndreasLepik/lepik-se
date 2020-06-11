@@ -13,7 +13,6 @@ const numberOfCols =    8;
 
 const tempoInput =      document.getElementById("input-tempo");
 const playButton =      document.getElementById("play");
-const output =          document.getElementById("outputText");
 const row0 =            document.getElementById("row0");
 const row1 =            document.getElementById("row1");
 const row2 =            document.getElementById("row2");
@@ -90,9 +89,13 @@ function keyboardShortcuts(e) {
 
                 // R - change row
                 case 82:
-                    rowIndex = currentNum;
-                    colIndex = parseInt(lastActiveIndex[1]);
-                    triggerCheckBox(rowIndex, colIndex);
+                    if (currentNum < numberOfRows) {
+                        rowIndex = currentNum;
+                        colIndex = parseInt(lastActiveIndex[1]);
+                        triggerCheckBox(rowIndex, colIndex);    
+                    } else {
+                        console.log("Invalid row: " + (currentNum + 1));
+                    }
                     lastKeyVal = keyVal;
                     break;
 
@@ -166,22 +169,14 @@ function playOnce() {
 function changeTempo() {
     const tempo = tempoInput.value;
     if (tempo == undefined) {
-        writeToOutput("Can't groove without a tempo, brother.");
+        console.log("Can't groove without a tempo, brother.");
         return;
     }
     const t = Audio.setTempo(tempo);
     if (t != -1) 
-        writeToOutput("New tempo: " + t + " bpm.");
+        console.log("New tempo: " + t + " bpm.");
     else
-        writeToOutput("Invalid tempo " + tempo + "!");
+        console.log("Invalid tempo " + tempo + "!");
     if (tempo.length == 0)
         tempoInput.value = '175';
-}
-
-function writeToOutput(text) {
-    output.innerHTML = text;
-}
-
-function invalidAction(input) {
-    writeToOutput("Invalid action: " + input);
 }

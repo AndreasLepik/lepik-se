@@ -16,12 +16,14 @@ Solo current channel
 # Cascading Style Sheets
 Fix tiny text alignment
 FIX TITLE PADDING
+Look at scrolling / breadth checks
 IO box styling
 Patterns UI
 
 # Hypertext Markup Language
 Add icons and visual help as a row to the left
 Buttons in left corner, < ? GitH
+Number indicators for matrix
 
 # Waaay down the road
 TypeScript?
