@@ -5,17 +5,20 @@
 export { playSounds }
 
 const audioContext = new AudioContext();
-const soundBuffers = [];
+var soundBuffers = [];
 const soundLinks = ["sounds/hihat.wav", "sounds/snare.wav", "sounds/kick.wav"];
 const soundNames = new Map([["hihat", 0], ["snare", 1], ["kick", 2]]);
 var loop;
+var hat;
+var snr;
+var kik;
 const synth = new Tone.Synth().toMaster();
 
 
 window.addEventListener('load', init, false);
 
 function init() {
-    loadSounds(soundLinks);
+    // loadSounds(soundLinks);
 
     loop = new Tone.Loop(function(time){
         //triggered every eighth note. 
@@ -23,6 +26,11 @@ function init() {
     }, "2n").start(0);
     loop.iterations = 4;
     Tone.Transport.bpm.value = 175;
+
+    hat = new Tone.Player(soundLinks[0]).toMaster();
+    snr = new Tone.Player(soundLinks[1]).toMaster();
+    kik = new Tone.Player(soundLinks[2]).toMaster();
+    soundBuffers = [hat, snr, kik];
 }
 
 function loadSounds(links) {
@@ -51,12 +59,9 @@ function playSounds(timeMatrix) {
             time => playSound(i, current + time)
         );
     }
-    Tone.Transport.toggle();
+    // Tone.Transport.toggle();
 }
 
 function playSound(index, time) {
-    var source = audioContext.createBufferSource();
-    source.buffer = soundBuffers[index];
-    source.connect(audioContext.destination);
-    source.start(time);
+    soundBuffers[index].start(time);
 }
