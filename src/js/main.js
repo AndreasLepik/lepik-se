@@ -5,7 +5,6 @@
  */
 import * as Audio from "./audio-control.js";
 
-
 // Global variables
 
 const numberOfRows =    3;
@@ -180,3 +179,4 @@ function changeTempo() {
     if (tempo.length == 0)
         tempoInput.value = '175';
 }
+

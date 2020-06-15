@@ -8,11 +8,21 @@ const audioContext = new AudioContext();
 const soundBuffers = [];
 const soundLinks = ["sounds/hihat.wav", "sounds/snare.wav", "sounds/kick.wav"];
 const soundNames = new Map([["hihat", 0], ["snare", 1], ["kick", 2]]);
+var loop;
+const synth = new Tone.Synth().toMaster();
+
 
 window.addEventListener('load', init, false);
 
 function init() {
     loadSounds(soundLinks);
+
+    loop = new Tone.Loop(function(time){
+        //triggered every eighth note. 
+        synth.triggerAttackRelease("C6", "8n");
+    }, "2n").start(0);
+    loop.iterations = 4;
+    Tone.Transport.bpm.value = 175;
 }
 
 function loadSounds(links) {
@@ -41,6 +51,7 @@ function playSounds(timeMatrix) {
             time => playSound(i, current + time)
         );
     }
+    Tone.Transport.toggle();
 }
 
 function playSound(index, time) {

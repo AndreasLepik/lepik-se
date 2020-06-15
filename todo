@@ -2,16 +2,16 @@
 
 ## DrumBOT
 # JavaScript
-SETUP TONEjs!!
+Make ToneJS import pretty and idiomatic
+Rework audio.js to feature ToneJS
 Blinking boxes when playing
 Check types in focused
-UML for modules
-Matrix handling in modules
 Type checks to give good errors?
 Loop feature
 Animation structure for checkboxes
 Add loading screen!
 Solo current channel
+UML?
 
 # Cascading Style Sheets
 Fix tiny text alignment
@@ -31,11 +31,12 @@ TypeScript?
 Different fill pattern based on off beat pattern
 Two boxes -> triplets
 Multiple sequence lengths
+Multiple channels
 Keyboard control - combination keys ex. [shift + 1]
+Swing variable
 FX section
 Modulation channels on sequencer
 Polyrythmic sub channel - either same or different sample
 Scrolling channel view
 Off accent pop up menu + special animations
-Add new channels like tracks
 Envelope control - add to animation
