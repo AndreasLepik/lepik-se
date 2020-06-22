@@ -2,6 +2,7 @@
 
 ## DrumBOT
 # JavaScript
+Add proper comments
 Make ToneJS import pretty and idiomatic
 Rework audio.js to feature ToneJS
 Blinking boxes when playing

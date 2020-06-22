@@ -243,7 +243,7 @@ html {
 }
 
 /*
- * Define web font for that spicy steve jobs look
+ * Import San Fransisco font
  */
 @font-face {
   font-family: "San Fransisco";
@@ -287,12 +287,12 @@ h2 {
 }
 
 a {
-  color: #79CEB1;
-  transition: opacity 0.2s ease;
+  color: white;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  opacity: 0.75;
+  color: aquamarine;
 }
 
 .page-wrap {
@@ -353,9 +353,9 @@ button:focus {
 .checkbox-row {
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-around; */
   padding: 1%;
-  padding-left: 2% ;
+  padding-left: 2%;
   /* background: var(--grey-med-focus); */
   /* border: 1px solid white; */
   border-left: var(--row-focus);
@@ -376,17 +376,12 @@ input[type='checkbox'] {
   left: -100px;
 }
 
-/* Custom size for checkboxes in matrix */
-.checkbox-row input[type='checkbox'] + label {
-  width: 50px;
-  height: 50px;
-}
-
 /* Draw custom checkbox for general purpose */
 input[type='checkbox'] + label {
   width: 30px;
   height: 30px;
   display: block;
+  margin-right: 2%;
   /* overflow: hidden; */
   background:transparent;
   border: 1px solid white;
@@ -410,6 +405,13 @@ input[type='checkbox']:hover + label {
 
 input[type='checkbox']:checked + label {
   background: white;
+}
+
+/* Custom size for checkboxes in matrix */
+.checkbox-row input[type='checkbox'] + label {
+  width: 50px;
+  height: 50px;
+  margin-right: 3%;
 }
 
 .checkbox-row input[type='checkbox']:hover + label {
