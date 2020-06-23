@@ -3,7 +3,7 @@
  * UI logic for drumBOT at lepik.se
  * Written by Andreas Lepik
  */
-import * as Audio from "./audio-control.js";
+import * as Audio from "./audio.js";
 
 // Global variables
 
@@ -27,6 +27,7 @@ for (var i = 0; i < numberOfRows; i++) {
     checkBoxMatrix[i] = [];
     for (var j = 0; j < numberOfCols; j++) {
         checkBoxMatrix[i][j] = document.getElementById("box" + i + j);
+        // checkBoxMatrix[i][j].addEventListener('change', () => {toggleBox(i, j)}, false);
     }
 }
 
@@ -53,6 +54,11 @@ function init() {
         r => r.style.setProperty('--row-focus', 'none')
     );
 }
+
+// function toggleBox(i, j) {
+    // const bool = checkBoxMatrix[i][j].checked;
+    // Audio.setBox(i, j, bool);
+// }
 
 function keyboardShortcuts(e) {
     const keyVal = e.which;
