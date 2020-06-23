@@ -20,49 +20,50 @@ const synth = new Tone.Synth().toMaster();
 window.addEventListener('load', init, false);
 
 function init() {
-    console.log("init");
     loadSounds(soundLinks);
 
-    seq = new Tone.Sequence(function(time, note){
-        console.log(note);
-        playSound(note, time)
-    //straight quater notes
-    }, [2, 2, 0, 2], "4n");
-    seq.start(0);
+    // seq = new Tone.Sequence(curriedTriggerNote(soundPlayers[0]), [true, true, false, [true, true]], "4n");
+    // seq.start(0);
+    // seq.loop = true;
+    // seq.loopEnd = "2m";
 
-
-    // createSequences(soundPlayers);
-
-    // sequences[0] = new Tone.Sequence(function(time, note) {
-    //     console.log(note);
-    //     playSound(note, time);
-    // }, [3, 3, 0, 3]);
-    // sequences[0].loopStart = 0;
-    // sequences[0].loopEnd = "1m";
-    // sequences[0].loop = true;
-     
+    createSequences(soundPlayers);
 
     Tone.Transport.bpm.value = 175;
+}
 
+function curriedTriggerNote(player) {
+    return function(time, note) {
+        if (note) {
+            player.start(time);
+        }
+    }
 }
 
 function loadSounds(links) {
+    // Set up new Player
+    function loadSound(link, bufferIndex) {
+        soundPlayers[bufferIndex] = new Tone.Player(link).toMaster();
+    }
+
     links.forEach(
         (link, index) => loadSound(link, index));
 }
 
-function loadSound(link, bufferIndex) {
-    soundPlayers[bufferIndex] = new Tone.Player(soundLinks[bufferIndex]).toMaster();
-}
+function createSequences(players) {
+    // Set up new sequence with desired configuration
+    function createSequence(player) {
+        const seq = new Tone.Sequence(curriedTriggerNote(player), [true, false]);
+        seq.start(0);
+        seq.loop = true;
+        seq.loopEnd = "2m";
+        return seq;
+    }
 
-// function createSequences(players) {
-    // players.forEach(
-        // (player, index) => sequences[index] = new Tone.Sequence(time => player.start(time), [false, false, false, false])
-    // );
-    // sequences.forEach(
-        // seq => seq.
-    // )
-// }
+    players.forEach(
+        (player, index) => sequences[index] = createSequence(player)
+    );
+}
 
 function playSounds(timeMatrix) {
     // const current = audioContext.currentTime;
@@ -71,6 +72,11 @@ function playSounds(timeMatrix) {
     //         time => playSound(i, current + time)
     //     );
     // }
+    for (var i = 0; i < timeMatrix.length; i++) {
+        for (var j = 0; j < timeMatrix[i].length; j++) {
+            sequences[i].at(j, timeMatrix[i][j]);
+        }
+    }
      
     Tone.Transport.toggle();
 }

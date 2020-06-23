@@ -21,7 +21,7 @@ var currentPatterns = [
 
 function playMatrix(checkBoxMatrix) {
     const activeTimes = checkBoxMatrix.map(row => generateSequence(row));
-    AudioModule.playSounds(activeTimes);
+    AudioModule.playSounds(checkBoxMatrix);
 }
 
 function generateSequence(checkedBoxes) {
