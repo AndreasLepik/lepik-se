@@ -25,6 +25,7 @@ Tone js 'donate here' - lookin hella fresh
 # Hypertext Markup Language
 Add icons and visual help as a row to the left
 Buttons in left corner, < ? GitH
+Make tutorial
 Number indicators for matrix
 
 # Waaay down the road
@@ -36,8 +37,15 @@ Multiple channels
 Keyboard control - combination keys ex. [shift + 1]
 Swing variable
 FX section
+UI rework for smaller screens, like mobile version
 Modulation channels on sequencer
 Polyrythmic sub channel - either same or different sample
 Scrolling channel view
 Off accent pop up menu + special animations
 Envelope control - add to animation
+
+# Fix before first release
+Loop feature
+Elementary tutorial
+Some visual feedback while playing
+

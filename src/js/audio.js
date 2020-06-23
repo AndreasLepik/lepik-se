@@ -1,5 +1,6 @@
 /**
  * Module responsible for the audio playing in drumBOT at lepik.se
+ * Powered by ToneJS
  * Written by Andreas Lepik
  */
 export { playSounds }
