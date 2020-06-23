@@ -6,10 +6,11 @@
 export { playSounds }
 
 const audioContext = new AudioContext();
-var soundBuffers = [];
+const soundPlayers = [];
 const soundLinks = ["sounds/hihat.wav", "sounds/snare.wav", "sounds/kick.wav"];
 const soundNames = new Map([["hihat", 0], ["snare", 1], ["kick", 2]]);
-var loop;
+const sequences = [];
+var seq;
 var hat;
 var snr;
 var kik;
@@ -19,19 +20,30 @@ const synth = new Tone.Synth().toMaster();
 window.addEventListener('load', init, false);
 
 function init() {
-    // loadSounds(soundLinks);
+    console.log("init");
+    loadSounds(soundLinks);
 
-    loop = new Tone.Loop(function(time){
-        //triggered every eighth note. 
-        synth.triggerAttackRelease("C6", "8n");
-    }, "2n").start(0);
-    loop.iterations = 4;
+    seq = new Tone.Sequence(function(time, note){
+        console.log(note);
+        playSound(note, time)
+    //straight quater notes
+    }, [2, 2, 0, 2], "4n");
+    seq.start(0);
+
+
+    // createSequences(soundPlayers);
+
+    // sequences[0] = new Tone.Sequence(function(time, note) {
+    //     console.log(note);
+    //     playSound(note, time);
+    // }, [3, 3, 0, 3]);
+    // sequences[0].loopStart = 0;
+    // sequences[0].loopEnd = "1m";
+    // sequences[0].loop = true;
+     
+
     Tone.Transport.bpm.value = 175;
 
-    hat = new Tone.Player(soundLinks[0]).toMaster();
-    snr = new Tone.Player(soundLinks[1]).toMaster();
-    kik = new Tone.Player(soundLinks[2]).toMaster();
-    soundBuffers = [hat, snr, kik];
 }
 
 function loadSounds(links) {
@@ -40,29 +52,29 @@ function loadSounds(links) {
 }
 
 function loadSound(link, bufferIndex) {
-    var request = new XMLHttpRequest();
-    request.open('GET', link, true);
-    request.responseType = 'arraybuffer';
-
-    request.onload = () => {
-        audioContext.decodeAudioData(
-            request.response, 
-            (buffer) => soundBuffers[bufferIndex] = buffer, 
-            (error) => console.error(error));
-    }
-    request.send();
+    soundPlayers[bufferIndex] = new Tone.Player(soundLinks[bufferIndex]).toMaster();
 }
 
+// function createSequences(players) {
+    // players.forEach(
+        // (player, index) => sequences[index] = new Tone.Sequence(time => player.start(time), [false, false, false, false])
+    // );
+    // sequences.forEach(
+        // seq => seq.
+    // )
+// }
+
 function playSounds(timeMatrix) {
-    const current = audioContext.currentTime;
-    for (var i = 0; i < timeMatrix.length; i++) {
-        timeMatrix[i].forEach(
-            time => playSound(i, current + time)
-        );
-    }
-    // Tone.Transport.toggle();
+    // const current = audioContext.currentTime;
+    // for (var i = 0; i < timeMatrix.length; i++) {
+    //     timeMatrix[i].forEach(
+    //         time => playSound(i, current + time)
+    //     );
+    // }
+     
+    Tone.Transport.toggle();
 }
 
 function playSound(index, time) {
-    soundBuffers[index].start(time);
+    soundPlayers[index].start(time);
 }
