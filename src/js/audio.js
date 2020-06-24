@@ -67,5 +67,6 @@ function togglePlay() {
 }
 
 function setBox(i, j, bool) {
-    soundPlayers[i].get(i, bool);
+    console.log("setBox: " + i + j);
+    sequences[i].at(j, bool);
 }

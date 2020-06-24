@@ -1,4 +1,3 @@
-// @ts-check
 /**
  * UI logic for drumBOT at lepik.se
  * Written by Andreas Lepik
@@ -27,7 +26,7 @@ for (var i = 0; i < numberOfRows; i++) {
     checkBoxMatrix[i] = [];
     for (var j = 0; j < numberOfCols; j++) {
         checkBoxMatrix[i][j] = document.getElementById("box" + i + j);
-        // checkBoxMatrix[i][j].addEventListener('change', () => {toggleBox(i, j)}, false);
+        checkBoxMatrix[i][j].addEventListener('change', toggleBox);
     }
 }
 
@@ -55,13 +54,17 @@ function init() {
     );
 }
 
-// function toggleBox(i, j) {
-    // const bool = checkBoxMatrix[i][j].checked;
-    // Audio.setBox(i, j, bool);
-// }
+function toggleBox(event) {
+    const ij = event.target.id.replace("box", "");
+    const i = Number(ij[0]);
+    const j = Number(ij[1]);
 
-function keyboardShortcuts(e) {
-    const keyVal = e.which;
+    const bool = checkBoxMatrix[i][j].checked;
+    Audio.setBox(i, j, bool);
+}
+
+function keyboardShortcuts(event) {
+    const keyVal = event.which;
     if (document.activeElement.type == 'number') {
         // blur the input on Enter, to reenable number navigation
         if (keyVal == 13) {
