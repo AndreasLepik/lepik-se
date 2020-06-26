@@ -353,11 +353,8 @@ button:focus {
 .checkbox-row {
   align-items: center;
   display: flex;
-  /* justify-content: space-around; */
   padding: 1%;
   padding-left: 2%;
-  /* background: var(--grey-med-focus); */
-  /* border: 1px solid white; */
   border-left: var(--row-focus);
   border-radius: 2px;
   border-width: 1px;
@@ -378,13 +375,12 @@ input[type='checkbox'] {
 
 /* Draw custom checkbox for general purpose */
 input[type='checkbox'] + label {
-  width: 30px;
-  height: 30px;
   display: block;
-  margin-right: 2%;
-  /* overflow: hidden; */
   background:transparent;
   border: 1px solid white;
+  cursor: pointer;
+  text-align: center;
+
   transition: 0.5s ease all;
   -moz-transition: 0.5s ease all;
   -webkit-transition: 0.5s ease all;
@@ -393,9 +389,6 @@ input[type='checkbox'] + label {
   -ms-transform: translateZ(0); /* IE 9 */
   -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
   transform: translateZ(0);
-  cursor: pointer;
-  text-align: center;
-  margin: 1px;
 }
 
 
@@ -405,6 +398,7 @@ input[type='checkbox']:hover + label {
 
 input[type='checkbox']:checked + label {
   background: white;
+  color: var(--grey-med);
 }
 
 /* Custom size for checkboxes in matrix */
@@ -427,21 +421,32 @@ input[type='checkbox']:checked + label {
   background: white;
 }
 
-.sub-pattern-box {
-  display: inline-flex;
-  padding: 2%;
-}
-
-.IO-box {
-  padding: 1%;
-}
-
-.sub-pattern-box input[type='checkbox'] + label,
-.sub-pattern-box label,
-.sub-pattern-box input {
+/* Custom sizes for elements in sub pattern box */
+.sub-pattern-box > * {
+  width: 30px;
   height: 30px;
-  margin-right: 10px;
-  margin-top: 0px;
+  margin-right: 2%;
+}
+
+.sub-pattern-box {
+  display: flex;
+
+  margin-top: 2%;
+  padding-inline-start: 1%;
+  padding-bottom: 2%;
+}
+
+/* Custom sizes for elements in master box */
+.master-box > * {
+  height: 40px;
+  width: 40px;
+  margin-right: 2%;
+  text-align: center;
+}
+
+.master-box {
+  display: flex;
+  padding: 1%;
 }
 
 .checkbox-matrix {
@@ -464,7 +469,7 @@ label {
     background-color: rgb(255, 151, 113);
   }
 
-  .IO-box {
+  .master-box {
     background-color: rgb(255, 151, 113);
   }
 
@@ -483,7 +488,7 @@ button {
   border: 1px solid white;
   cursor: pointer;
   color: white;
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
   /* margin: 5px; */
   transition: 0.5s ease all;
   /* Fix for blurry transition */
@@ -513,7 +518,8 @@ button:active {
 input[type='number'] {
   background: none;
   border: 1px solid white;
-  padding: 4px 5px;
+  text-align: left;
+  /* padding: 4px 5px; */
   color: white;
   width: 3em;
   -moz-appearance: textfield;
