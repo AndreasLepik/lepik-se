@@ -1,9 +1,9 @@
 /**
- * Module responsible for the audio playing in drumBOT at lepik.se
+ * Module responsible for playing audio and audio logic in drumBOT at lepik.se
  * Powered by ToneJS
  * Written by Andreas Lepik
  */
-export { playMatrix, togglePlay, setBox }
+export { playMatrix, togglePlay, toggleLoop, setBox }
 
 const soundPlayers = [];
 const soundLinks = ["sounds/hihat.wav", "sounds/snare.wav", "sounds/kick.wav"];
@@ -15,6 +15,7 @@ window.addEventListener('load', init, false);
 function init() {
     loadSounds(soundLinks);
     createSequences(soundPlayers);
+    Tone.Transport.stop("2m");
     Tone.Transport.bpm.value = 175;
 }
 
@@ -33,7 +34,8 @@ function createSequences(players) {
     function createSequence(player) {
         const seq = new Tone.Sequence(curriedTriggerNote(player), [true, false]);
         seq.start(0);
-        seq.loop = true;
+        seq.loop = false;
+        seq.loopStart = 0;
         seq.loopEnd = "2m";
         return seq;
     }
@@ -58,15 +60,34 @@ function playMatrix(timeMatrix) {
             sequences[i].at(j, timeMatrix[i][j]);
         }
     }
-     
+    
     Tone.Transport.toggle();
 }
 
 function togglePlay() {
-    Tone.Transport.toggle();
+    if (sequences[0].loop) {
+        Tone.Transport.toggle();
+    } else {
+        // Tone.Transport.position = 0;
+        Tone.Transport.toggle();
+    }
+}
+
+function toggleLoop(bool) {
+    var loopVar;
+    if (bool) {
+        loopVar = true;
+    } else {
+        loopVar = 1;
+    }
+    sequences.forEach(
+        seq => seq.loop = bool
+    );
 }
 
 function setBox(i, j, bool) {
     console.log("setBox: " + i + j);
     sequences[i].at(j, bool);
 }
+
+

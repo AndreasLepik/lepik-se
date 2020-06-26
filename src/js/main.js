@@ -11,6 +11,7 @@ const numberOfCols =    8;
 
 const tempoInput =      document.getElementById("input-tempo");
 const playButton =      document.getElementById("play");
+const loopBox =         document.getElementById("box-loop");
 const row0 =            document.getElementById("row0");
 const row1 =            document.getElementById("row1");
 const row2 =            document.getElementById("row2");
@@ -41,6 +42,7 @@ var lastKeyVal =        49;
 
 playButton.addEventListener('click', playOnce);
 tempoInput.addEventListener('change', changeTempo);
+loopBox.addEventListener('change', toggleLoop);
 document.addEventListener('keyup', keyboardShortcuts);
 window.addEventListener('focus', changedFocus, true);
 window.addEventListener('load', init, false);
@@ -61,6 +63,10 @@ function toggleBox(event) {
 
     const bool = checkBoxMatrix[i][j].checked;
     Audio.setBox(i, j, bool);
+}
+
+function toggleLoop() {
+    Audio.toggleLoop(loopBox.checked);
 }
 
 function keyboardShortcuts(event) {
@@ -180,12 +186,7 @@ function changeTempo() {
         console.log("Can't groove without a tempo, brother.");
         return;
     }
-    const t = Audio.setTempo(tempo);
-    if (t != -1) 
-        console.log("New tempo: " + t + " bpm.");
-    else
-        console.log("Invalid tempo " + tempo + "!");
     if (tempo.length == 0)
         tempoInput.value = '175';
+    Audio.setTempo(tempo);
 }
-
