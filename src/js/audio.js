@@ -3,7 +3,7 @@
  * Powered by ToneJS
  * Written by Andreas Lepik
  */
-export { playMatrix, togglePlay, toggleLoop, setBox }
+export { playMatrix, togglePlay, toggleLoop, setBox, setTempo }
 
 const soundPlayers = [];
 const soundLinks = ["sounds/hihat.wav", "sounds/snare.wav", "sounds/kick.wav"];
@@ -90,4 +90,9 @@ function setBox(i, j, bool) {
     sequences[i].at(j, bool);
 }
 
-
+function setTempo(tempo) {
+    console.log(tempo)
+    if (tempo >= 50 && tempo <= 300) {
+        Tone.Transport.bpm.value = tempo;
+    }
+}

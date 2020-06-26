@@ -188,5 +188,5 @@ function changeTempo() {
     }
     if (tempo.length == 0)
         tempoInput.value = '175';
-    Audio.setTempo(tempo);
+    Audio.setTempo(Number(tempo));
 }
