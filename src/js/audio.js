@@ -61,24 +61,25 @@ function playMatrix(timeMatrix) {
         }
     }
     
-    Tone.Transport.toggle();
+    togglePlay();
 }
 
 function togglePlay() {
     if (sequences[0].loop) {
         Tone.Transport.toggle();
     } else {
-        // Tone.Transport.position = 0;
-        Tone.Transport.toggle();
+        if (Tone.Transport.state == 'stopped' || Number(Tone.Transport.position[0]) >= 2) {
+            Tone.Transport.stop();
+            Tone.Transport.start();
+        } else {
+            Tone.Transport.stop();
+        }
     }
 }
 
 function toggleLoop(bool) {
-    var loopVar;
-    if (bool) {
-        loopVar = true;
-    } else {
-        loopVar = 1;
+    if (!sequences[0].loop && Number(Tone.Transport.position[0]) >= 2) {
+        Tone.Transport.stop();
     }
     sequences.forEach(
         seq => seq.loop = bool
@@ -91,7 +92,6 @@ function setBox(i, j, bool) {
 }
 
 function setTempo(tempo) {
-    console.log(tempo)
     if (tempo >= 50 && tempo <= 300) {
         Tone.Transport.bpm.value = tempo;
     }
