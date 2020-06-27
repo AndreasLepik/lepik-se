@@ -130,7 +130,15 @@ function keyboardShortcuts(event) {
 
         // P - play
         case 80:
-            playOnce();    
+            playOnce();
+            lastKeyVal = keyVal;
+            break;
+
+        // L - toggle loop
+        case 76:
+            loopBox.click();
+            lastKeyVal = keyVal;
+            break;
 
         // R, D, Enter - await next number
         case 82:
