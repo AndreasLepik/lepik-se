@@ -1,5 +1,5 @@
 /**
- * UI logic for drumBOT at lepik.se
+ * UI logic and keboard shortcuts for drumBOT at lepik.se
  * Written by Andreas Lepik
  */
 import * as Audio from "./audio.js";
@@ -32,6 +32,8 @@ for (var i = 0; i < numberOfRows; i++) {
 }
 
 
+// Variables used for keyboard control
+
 var lastActiveElement = document.activeElement;
 var lastActiveRow =     row0;
 var lastActiveIndex =   "00";
@@ -40,7 +42,7 @@ var lastKeyVal =        49;
 
 // Link elements to functions
 
-playButton.addEventListener('click', playOnce);
+playButton.addEventListener('click', togglePlay);
 tempoInput.addEventListener('change', changeTempo);
 loopBox.addEventListener('change', toggleLoop);
 document.addEventListener('keyup', keyboardShortcuts);
@@ -50,12 +52,22 @@ window.addEventListener('load', init, false);
 
 // Function definitions
 
+/**
+ * Runs on start up. Workaround to remove visual row focus.
+ */
 function init() {
     rows.forEach(
         r => r.style.setProperty('--row-focus', 'none')
     );
 }
 
+
+/**
+ * Eventlistener function for the checkboxes.
+ * toggleBox is used to communicate to the sequencers when a checkbox is ticked.
+ * This enables changing of the sequence while the loop is playing.
+ * @param {Event} event is the Event containing the ticked checkbox.
+ */
 function toggleBox(event) {
     const ij = event.target.id.replace("box", "");
     const i = Number(ij[0]);
@@ -65,10 +77,18 @@ function toggleBox(event) {
     Audio.setBox(i, j, bool);
 }
 
+
 function toggleLoop() {
     Audio.toggleLoop(loopBox.checked);
 }
 
+
+/**
+ * Eventlistener function for document keyup.
+ * keyboardShortcuts is used to handle app control with keyboard input.
+ * It uses the last* variables to handle multiple key input sequences.
+ * @param {Event} event is the Event containing the key.
+ */
 function keyboardShortcuts(event) {
     const keyVal = event.which;
     if (document.activeElement.type == 'number') {
@@ -130,7 +150,7 @@ function keyboardShortcuts(event) {
 
         // P - play
         case 80:
-            playOnce();
+            togglePlay();
             lastKeyVal = keyVal;
             break;
 
@@ -149,6 +169,12 @@ function keyboardShortcuts(event) {
     }
 }
 
+
+/**
+ * triggerCheckBox is used by keyboardShortcuts to tick the matrix checkboxes.
+ * @param {Number} row
+ * @param {Number} col 
+ */
 function triggerCheckBox(row, col) {
     switch (row) {
         case 'sub':
@@ -169,6 +195,11 @@ function triggerCheckBox(row, col) {
     }
 }
 
+
+/**
+ * Eventlistener function for window focus.
+ * changedFocus is used to give visual feedback about which row is on focus.
+ */
 function changedFocus() {
     const e = document.activeElement;
     lastActiveRow.style.setProperty('--row-focus', 'none');
@@ -179,7 +210,12 @@ function changedFocus() {
     e.parentNode.style.setProperty('--row-focus', '2px solid white');
 }
 
-function playOnce() {
+
+/**
+ * Eventlistener function for play button.
+ * togglePlay starts/ stops the drum machine.
+ */
+function togglePlay() {
     const tickedBoxes = checkBoxMatrix.map(
         row => row.map(
             cb => cb.checked
@@ -188,6 +224,11 @@ function playOnce() {
     Audio.playMatrix(tickedBoxes);
 }
 
+
+/**
+ * Eventlistener function for the tempo number input.
+ * changeTempo changes the global tempo of the drum machine.
+ */
 function changeTempo() {
     const tempo = tempoInput.value;
     if (tempo == undefined) {
