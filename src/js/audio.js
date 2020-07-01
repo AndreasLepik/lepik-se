@@ -116,6 +116,7 @@ function setBox(i, j, bool) {
     sequences[i].at(j, bool);
 }
 
+
 /**
  * setTempo is used to set a new tempo.
  * @param {Number} tempo is the new tempo in bpm.

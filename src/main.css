@@ -513,6 +513,35 @@ button:active {
   100% { transform: scale(1); color: rgb(255, 187, 162);}
 }
 
+.corner-menu {
+  position: absolute;
+  left: 0.5em;
+  top: 0.5em;
+  width: 2em;
+  height: 8em;
+}
+
+.corner-menu > button {
+  opacity: 0.2;
+  height: 2em;
+  width: 2em;
+  border: 1px solid white;
+  border-radius: 2em;
+  /* border-bottom: 1em; */
+  margin-bottom: 0.2em;
+}
+
+.corner-menu > button:hover {
+  opacity: 1;
+}
+
+#button-back {
+  transform: scaleX(-1);
+  /* unicode-bidi: bidi-override; */
+  /* direction: rtl; */
+}
+
+
 /* Numberbox input */
 
 input[type='number'] {
