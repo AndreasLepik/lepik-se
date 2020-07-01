@@ -8,7 +8,6 @@ Make ToneJS import pretty and idiomatic
 Blinking boxes when playing
 Check types in focused
 Type checks to give good errors?
-Loop feature
 Animation structure for checkboxes
 Add loading screen!
 Solo current channel
@@ -22,7 +21,6 @@ FIX TITLE PADDING
 Look at scrolling / breadth checks
 IO box styling
 Patterns UI
-Tone js 'donate here' - lookin hella fresh
 
 # Hypertext Markup Language
 Add icons and visual help as a row to the left
@@ -47,7 +45,6 @@ Off accent pop up menu + special animations
 Envelope control - add to animation
 
 # Fix before first release
-Loop feature
 Elementary tutorial
 Some visual feedback while playing
 Checks on keboard input

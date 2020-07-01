@@ -44,7 +44,7 @@ var lastKeyVal =        49;
 
 playButton.addEventListener('click', togglePlay);
 tempoInput.addEventListener('change', changeTempo);
-loopBox.addEventListener('change', toggleLoop);
+loopBox.addEventListener('change', setLoop);
 document.addEventListener('keyup', keyboardShortcuts);
 window.addEventListener('focus', changedFocus, true);
 window.addEventListener('load', init, false);
@@ -52,9 +52,7 @@ window.addEventListener('load', init, false);
 
 // Function definitions
 
-/**
- * Runs on start up. Workaround to remove visual row focus.
- */
+// Runs on start up. Workaround to remove row focus indicator.
 function init() {
     rows.forEach(
         r => r.style.setProperty('--row-focus', 'none')
@@ -78,8 +76,9 @@ function toggleBox(event) {
 }
 
 
-function toggleLoop() {
-    Audio.toggleLoop(loopBox.checked);
+// Eventlistener function for the loop checkbox
+function setLoop() {
+    Audio.setLoop(loopBox.checked);
 }
 
 
@@ -172,8 +171,8 @@ function keyboardShortcuts(event) {
 
 /**
  * triggerCheckBox is used by keyboardShortcuts to tick the matrix checkboxes.
- * @param {Number} row
- * @param {Number} col 
+ * @param {Number} row is the row index of the box to be triggered.
+ * @param {Number} col is the col index of the box to be triggered.
  */
 function triggerCheckBox(row, col) {
     switch (row) {
@@ -198,7 +197,7 @@ function triggerCheckBox(row, col) {
 
 /**
  * Eventlistener function for window focus.
- * changedFocus is used to give visual feedback about which row is on focus.
+ * changedFocus is used to give a visual indicator about which row is on focus.
  */
 function changedFocus() {
     const e = document.activeElement;
@@ -226,7 +225,7 @@ function togglePlay() {
 
 
 /**
- * Eventlistener function for the tempo number input.
+ * Eventlistener function for the tempo input.
  * changeTempo changes the global tempo of the drum machine.
  */
 function changeTempo() {

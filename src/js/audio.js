@@ -1,9 +1,9 @@
 /**
- * Module responsible for playing audio and audio logic in drumBOT at lepik.se
+ * Module responsible for playing audio and sequencer logic in drumBOT at lepik.se
  * Powered by ToneJS
  * Written by Andreas Lepik
  */
-export { playMatrix, togglePlay, toggleLoop, setBox, setTempo }
+export { playMatrix, togglePlay, setLoop, setBox, setTempo }
 
 const soundPlayers = [];
 const soundLinks = ["sounds/hihat.wav", "sounds/snare.wav", "sounds/kick.wav"];
@@ -12,23 +12,29 @@ const sequences = [];
 
 window.addEventListener('load', init, false);
 
+
+// Runs on startup.
 function init() {
     loadSounds(soundLinks);
     createSequences(soundPlayers);
-    Tone.Transport.stop("2m");
     Tone.Transport.bpm.value = 175;
 }
 
-function loadSounds(links) {
-    // Set up new Player
-    function loadSound(link, bufferIndex) {
-        soundPlayers[bufferIndex] = new Tone.Player(link).toMaster();
-    }
 
+/**
+ * Initializes a Player for each sample.
+ * @param {Object} links is an array of strings describing the sample locations. 
+ */
+function loadSounds(links) {
     links.forEach(
-        (link, index) => loadSound(link, index));
+        (link, index) => soundPlayers[index] = new Tone.Player(link).toMaster());
 }
 
+
+/**
+ * Initializes Sequences, one for each instrument.
+ * @param {Object} players is the array of Players.
+ */
 function createSequences(players) {
     // Set up new sequence with desired configuration
     function createSequence(player) {
@@ -54,6 +60,11 @@ function createSequences(players) {
     );
 }
 
+
+/**
+ * playMatrix evaluates all checkboxes before starting/ stopping the sequence.
+ * @param {Object} timeMatrix is a two-dimensional array describing which notes should be triggered in each sequence.
+ */
 function playMatrix(timeMatrix) {
     for (var i = 0; i < timeMatrix.length; i++) {
         for (var j = 0; j < timeMatrix[i].length; j++) {
@@ -64,6 +75,8 @@ function playMatrix(timeMatrix) {
     togglePlay();
 }
 
+
+// togglePlay starts/ stops the sequence depending on its current state.
 function togglePlay() {
     if (sequences[0].loop) {
         Tone.Transport.toggle();
@@ -77,7 +90,12 @@ function togglePlay() {
     }
 }
 
-function toggleLoop(bool) {
+
+/**
+ * setLoop activates/ deactivates the loop functionality.
+ * @param {Boolean} bool decides wheter the sequence should loop or not.
+ */
+function setLoop(bool) {
     if (!sequences[0].loop && Number(Tone.Transport.position[0]) >= 2) {
         Tone.Transport.stop();
     }
@@ -86,11 +104,22 @@ function toggleLoop(bool) {
     );
 }
 
+
+/**
+ * setBox changes the value of a specific step in a sequence.
+ * @param {Number} i is the index of the row.
+ * @param {Number} j is the index of the column.
+ * @param {Boolean} bool is the new value of the step.
+ */
 function setBox(i, j, bool) {
     console.log("setBox: " + i + j);
     sequences[i].at(j, bool);
 }
 
+/**
+ * setTempo is used to set a new tempo.
+ * @param {Number} tempo is the new tempo in bpm.
+ */
 function setTempo(tempo) {
     if (tempo >= 50 && tempo <= 300) {
         Tone.Transport.bpm.value = tempo;
