@@ -155,7 +155,7 @@ function keyboardShortcuts(event) {
         
         // T - focus on tempoInput
         case 84:
-            tempoInput.focus();
+            tempoInput.select()
             break;
 
         // P - play
