@@ -46,8 +46,8 @@ var lastKeyVal =        49;
 // Link elements to functions
 
 playButton.addEventListener('click', togglePlay);
-helpButton.addEventListener('click', triggerModal);
-closeHelpButton.addEventListener('click', triggerModal);
+helpButton.addEventListener('click', toggleModal);
+closeHelpButton.addEventListener('click', toggleModal);
 tempoInput.addEventListener('change', changeTempo);
 loopBox.addEventListener('change', setLoop);
 document.addEventListener('keyup', keyboardShortcuts);
@@ -65,7 +65,8 @@ function init() {
 }
 
 
-function triggerModal() {
+// Eventlistener function for the help button. Toggles a modal popup.
+function toggleModal() {
     modalClass.classList.toggle("modal-visible");
 }
 
