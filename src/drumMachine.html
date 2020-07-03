@@ -14,9 +14,19 @@
 
   <body>
     <div class="corner-menu">
-      <button id="button-back">&#10146</button>
+      <button id="button-back" onclick="window.location.href='index.html';"><</button>
       <button id="button-help">?</button>
-      <button id="button-github">&#8458</button>
+      <button id="button-github" onclick="window.open('https://github.com/AndreasLepik')">&#8458</button>
+    </div>
+
+    <div class="modal" id="modal-context">
+      <div class="modal-popup">
+        <h1>
+          Whoopedy doo
+          newline!
+        </h1>
+        <button id="button-close-modal">oki</button>  
+      </div>
     </div>
 
     <div class="page-wrap">
@@ -105,7 +115,7 @@
         <input id="input-tempo" type="number" value="175" min="50" max="300" onclick="this.select()"/>
         <input type='checkbox' id="box-loop" class="custom-checkbox">
         <label for="box-loop">LOOP</label>
-        <button id="play">&#9835;</Button>
+        <button id="button-play">&#9835;</Button>
       </div>
 
     </div>
