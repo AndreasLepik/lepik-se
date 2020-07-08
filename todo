@@ -5,6 +5,7 @@
 Proper checks on keyboard inputs
 Make ToneJS import pretty and idiomatic
 Blinking boxes when playing
+Fix the tutorial
 Give keyboard navigation its own file?
 Check types in focused
 Type checks to give good errors?
