@@ -19,6 +19,7 @@
 
 html {
   height: 100%;
+  line-height: 1;
 }
 
 /*
@@ -58,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2 {
   font-size: 1.33em;
-  line-height: 1.35;
+  line-height: 1;
 }
 
 h2 {
@@ -79,10 +80,11 @@ a:hover {
   max-width: 90%;
   margin: .5em auto;
   padding-bottom: 5%;
+  padding-left: 5%;
 }
 
 .overlap-text {
-  font-weight: 900;
+  /* font-weight: 900; */
   font-size: 4rem;
   padding: none;
   margin: none;
@@ -356,4 +358,12 @@ input::-webkit-inner-spin-button {
   body {
     font-size: 1.5em;
   }
+}
+
+#tutorial-wrapper h1 {
+  /* color: coral; */
+}
+
+table {
+  column-gap: 10em;
 }

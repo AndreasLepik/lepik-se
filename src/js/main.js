@@ -11,9 +11,6 @@ const numberOfCols =    8;
 
 const tempoInput =      document.getElementById("input-tempo");
 const playButton =      document.getElementById("button-play");
-const helpButton =      document.getElementById("button-help");
-const modalClass =      document.getElementById("modal-context");
-const closeHelpButton = document.getElementById("button-close-modal");
 const loopBox =         document.getElementById("box-loop");
 const row0 =            document.getElementById("row0");
 const row1 =            document.getElementById("row1");
@@ -46,8 +43,6 @@ var lastKeyVal =        49;
 // Link elements to functions
 
 playButton.addEventListener('click', togglePlay);
-helpButton.addEventListener('click', toggleModal);
-closeHelpButton.addEventListener('click', toggleModal);
 tempoInput.addEventListener('change', changeTempo);
 loopBox.addEventListener('change', setLoop);
 document.addEventListener('keyup', keyboardShortcuts);
@@ -62,12 +57,6 @@ function init() {
     rows.forEach(
         r => r.style.setProperty('--row-focus', 'none')
     );
-}
-
-
-// Eventlistener function for the help button. Toggles a modal popup.
-function toggleModal() {
-    modalClass.classList.toggle("modal-visible");
 }
 
 
