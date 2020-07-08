@@ -86,7 +86,6 @@ a:hover {
   font-size: 4rem;
   padding: none;
   margin: none;
-
 }
 
 .right {
@@ -209,7 +208,6 @@ input[type='checkbox']:checked + label {
 
 .sub-pattern-box {
   display: flex;
-
   margin-top: 2%;
   padding-inline-start: 1%;
   padding-bottom: 2%;
@@ -236,29 +234,6 @@ input[type='checkbox']:checked + label {
 
 label {
   font-size: 0.5em;
-}
-
-/* Visualize boxes in small windows. */
-@media (max-width: 60em) {
-  .page-wrap {
-    background-color: coral;
-  }
-
-  .checkbox-matrix {
-    background-color: rgb(255, 151, 113);
-  }
-
-  .master-box {
-    background-color: rgb(255, 151, 113);
-  }
-
-  h1 {
-    background-color: rgb(255, 151, 113);
-  }
-
-  .sub-pattern-box {
-    background: lightblue;
-  }  
 }
 
 /* Buttons */
@@ -351,7 +326,7 @@ input[type='number'] {
   text-align: left;
   /* padding: 4px 5px; */
   color: white;
-  width: 3em;
+  width: 2em;
   -moz-appearance: textfield;
   transition: 0.5s ease all;
   /* Fix for blurry transition */
