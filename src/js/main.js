@@ -46,19 +46,10 @@ playButton.addEventListener('click', togglePlay);
 tempoInput.addEventListener('change', changeTempo);
 loopBox.addEventListener('change', setLoop);
 document.addEventListener('keyup', keyboardShortcuts);
-window.addEventListener('focus', changedFocus, true);
 window.addEventListener('load', init, false);
 
 
 // Function definitions
-
-// Runs on start up. Workaround to remove row focus indicator.
-function init() {
-    rows.forEach(
-        r => r.style.setProperty('--row-focus', 'none')
-    );
-}
-
 
 /**
  * Eventlistener function for the checkboxes.
@@ -172,7 +163,7 @@ function keyboardShortcuts(event) {
 /**
  * triggerCheckBox is used by keyboardShortcuts to tick the matrix checkboxes.
  * @param {Number} row is the row index of the box to be triggered.
- * @param {Number} col is the col index of the box to be triggered.
+ * @param {Number} col is the column index of the box to be triggered.
  */
 function triggerCheckBox(row, col) {
     switch (row) {
