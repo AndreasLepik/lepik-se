@@ -210,38 +210,34 @@ input[type='checkbox']:checked + label {
   /* left: -2em; */
 }
 
+.ui-row {
+  display: flex;
+  margin-top: 2%;
+}
+
 /* Custom sizes for elements in sub pattern box */
-.sub-pattern-box > * {
+#sub-pattern-box > * {
   width: 30px;
   height: 30px;
   margin-right: 2%;
 }
 
-.sub-pattern-box {
-  display: flex;
-  margin-top: 2%;
+#sub-pattern-box {
   padding-inline-start: 1%;
-  padding-bottom: 2%;
   padding-left: 2em;
 }
 
 /* Custom sizes for elements in master box */
-.master-box > * {
+#master-box > * {
   height: 40px;
   width: 40px;
   margin-right: 2%;
   text-align: center;
 }
 
-.master-box {
-  display: flex;
+#master-box {
   padding: 1%;
   padding-left: 4em;
-}
-
-.ui-row {
-  display: flex;
-  margin-top: 2%;
 }
 
 .checkbox-matrix {
