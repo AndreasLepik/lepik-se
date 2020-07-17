@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2 {
   font-size: 1.33em;
-  line-height: 1;
+  line-height: 0.85;
 }
 
 h2 {
@@ -134,7 +134,7 @@ button:focus {
   align-items: center;
   display: flex;
   padding: 1%;
-  padding-left: 2%;
+  /* padding-left: 2%; */
   border-left: var(--row-focus);
   border-radius: 2px;
   border-width: 1px;
@@ -199,6 +199,15 @@ input[type='checkbox']:checked + label {
 
 .checkbox-row input[type='checkbox']:checked:focus + label {
   background: white;
+}
+
+.ui-text {
+  line-height: 0.1em;
+  width: 2em;
+  /* text-align: left; */
+  /*  */
+  /* position: relative; */
+  /* left: -2em; */
 }
 
 /* Custom sizes for elements in sub pattern box */
@@ -358,10 +367,6 @@ input::-webkit-inner-spin-button {
   body {
     font-size: 1.5em;
   }
-}
-
-#tutorial-wrapper h1 {
-  /* color: coral; */
 }
 
 table {
