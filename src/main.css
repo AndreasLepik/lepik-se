@@ -222,6 +222,7 @@ input[type='checkbox']:checked + label {
   margin-top: 2%;
   padding-inline-start: 1%;
   padding-bottom: 2%;
+  padding-left: 2em;
 }
 
 /* Custom sizes for elements in master box */
@@ -235,11 +236,15 @@ input[type='checkbox']:checked + label {
 .master-box {
   display: flex;
   padding: 1%;
+  padding-left: 4em;
+}
+
+.ui-row {
+  display: flex;
+  margin-top: 2%;
 }
 
 .checkbox-matrix {
-  /* border: 2px solid var(--grey-med-focus); */
-  /* background: var(--grey-dark); */
   border-radius: 2px;
 }
 
