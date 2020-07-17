@@ -237,14 +237,15 @@ html {
 @font-face {
   font-family: "San Fransisco";
   font-weight: 400;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+  src: local(".SFNSText-Regular"), url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+  font-display: swap;
 }
 
 body {
   background: #0839fa;
   background: #727272;
   color: white;
-  font-family: 'San Fransisco', 'DM Sans', sans-serif;
+  font-family: -apple-system, 'San Fransisco', system-ui, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
