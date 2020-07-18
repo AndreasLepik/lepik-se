@@ -3,9 +3,9 @@
  * Written by Andreas Lepik
  */
 import * as Audio from "./audio.js";
+export { triggerElement, togglePlay }
 
 // Global variables
-
 const numberOfRows =    3;
 const numberOfCols =    8;
 
@@ -32,24 +32,13 @@ for (var i = 0; i < numberOfRows; i++) {
 }
 
 
-// Variables used for keyboard control
-
-var lastActiveElement = document.activeElement;
-var lastActiveRow =     row0;
-var lastActiveIndex =   "00";
-var lastKeyVal =        49;
-
-
 // Link elements to functions
-
 playButton.addEventListener('click', togglePlay);
 tempoInput.addEventListener('change', changeTempo);
 loopBox.addEventListener('change', setLoop);
-document.addEventListener('keyup', keyboardShortcuts);
 
 
 // Function definitions
-
 /**
  * Eventlistener function for the checkboxes.
  * toggleBox is used to communicate to the sequencers when a checkbox is ticked.
@@ -69,119 +58,6 @@ function toggleBox(event) {
 // Eventlistener function for the loop checkbox
 function setLoop() {
     Audio.setLoop(loopBox.checked);
-}
-
-
-/**
- * Eventlistener function for document keyup.
- * keyboardShortcuts is used to handle app control with keyboard input.
- * It uses the last* variables to handle multiple key input sequences.
- * @param {Event} event is the Event containing the key.
- */
-function keyboardShortcuts(event) {
-    const keyVal = event.which;
-    if (document.activeElement.type == 'number') {
-        // remove focus from number input, to reenable number navigation
-        if (keyVal == 13) {
-            document.activeElement.blur();
-        }
-        return;
-    }
-
-    switch (keyVal) {
-        // 1 to 8 - navigate checkboxes
-        case 49:
-        case 50:
-        case 51:
-        case 52:
-        case 53:
-        case 54:
-        case 55:
-        case 56:
-            const currentNum = keyVal - 49;
-            var rowIndex;
-            var colIndex;
-            switch (lastKeyVal) {
-                // D - divide, control sub pattern
-                case 68:
-                    rowIndex = 'sub';
-                    colIndex = currentNum;
-                    triggerCheckBox(rowIndex, colIndex);
-                    // Don't change lastKeyVal
-                    break;
-
-                // R - change row
-                case 82:
-                    if (currentNum < numberOfRows) {
-                        rowIndex = currentNum;
-                        colIndex = parseInt(lastActiveIndex[1]);
-                        triggerCheckBox(rowIndex, colIndex);    
-                    } else {
-                        console.log("Invalid row: " + (currentNum + 1));
-                    }
-                    lastKeyVal = keyVal;
-                    break;
-
-                // change coloumn
-                default:
-                    colIndex = currentNum;
-                    rowIndex = rows.indexOf(lastActiveRow);
-                    triggerCheckBox(rowIndex, colIndex);
-                    lastKeyVal = keyVal;
-                    break;
-            }
-            break;
-        
-        // T - focus on tempoInput
-        case 84:
-            tempoInput.select()
-            break;
-
-        // P - play
-        case 80:
-            togglePlay();
-            lastKeyVal = keyVal;
-            break;
-
-        // L - toggle loop
-        case 76:
-            loopBox.click();
-            lastKeyVal = keyVal;
-            break;
-
-        // R, D, Enter - await next number
-        case 82:
-        case 68:
-        case 13:
-            lastKeyVal = keyVal;
-            break;
-    }
-}
-
-
-/**
- * triggerCheckBox is used by keyboardShortcuts to tick the matrix checkboxes.
- * @param {Number} row is the row index of the box to be triggered.
- * @param {Number} col is the column index of the box to be triggered.
- */
-function triggerCheckBox(row, col) {
-    switch (row) {
-        case 'sub':
-            subBoxes[col].click();
-            break;
-        default:
-            // add check
-            const current = checkBoxMatrix[row][col];
-            if (current == lastActiveElement) {
-                current.click();
-            } else {
-                current.focus();
-                lastActiveElement = current;
-                lastActiveRow =     rows[row];
-                lastActiveIndex = "" + row + col;
-            }
-            break;
-    }
 }
 
 
@@ -212,4 +88,33 @@ function changeTempo() {
     if (tempo.length == 0)
         tempoInput.value = '175';
     Audio.setTempo(Number(tempo));
+}
+
+
+/**
+ * triggerElement is used by keyboard-shortcuts.js to tick the matrix checkboxes or to focus on UI elements.
+ * @param {Number, String} row is the checkbox index or an indicator for which element to interact with.
+ * @param {Number} col is the column index of the box to be triggered.
+ * @param {Boolean} shouldClick determines if a checkbox should be clicked or focused on.
+ */
+function triggerElement(row, col, shouldClick) {
+    switch (row) {
+        case 'sub':
+            subBoxes[col].click();
+            break;
+        case 'tempo':
+            tempoInput.select();
+            break;
+        case 'loop':
+            loopBox.click();
+            break;
+        default:
+            const current = checkBoxMatrix[row][col];
+            if (shouldClick) {
+                current.click();
+            } else {
+                current.focus();
+            }
+            break;
+    }
 }
