@@ -46,7 +46,6 @@ playButton.addEventListener('click', togglePlay);
 tempoInput.addEventListener('change', changeTempo);
 loopBox.addEventListener('change', setLoop);
 document.addEventListener('keyup', keyboardShortcuts);
-window.addEventListener('load', init, false);
 
 
 // Function definitions
@@ -82,7 +81,7 @@ function setLoop() {
 function keyboardShortcuts(event) {
     const keyVal = event.which;
     if (document.activeElement.type == 'number') {
-        // blur the input on Enter, to reenable number navigation
+        // remove focus from number input, to reenable number navigation
         if (keyVal == 13) {
             document.activeElement.blur();
         }
@@ -183,21 +182,6 @@ function triggerCheckBox(row, col) {
             }
             break;
     }
-}
-
-
-/**
- * Eventlistener function for window focus.
- * changedFocus is used to give a visual indicator about which row is on focus.
- */
-function changedFocus() {
-    const e = document.activeElement;
-    lastActiveRow.style.setProperty('--row-focus', 'none');
-    if (e.type == 'checkbox') {
-        lastActiveRow = e.parentNode;
-        lastActiveIndex = e.id.replace("box", "");
-    }
-    e.parentNode.style.setProperty('--row-focus', '2px solid white');
 }
 
 
