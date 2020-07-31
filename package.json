@@ -1,7 +1,7 @@
 {
   "name": "lepik-webiste",
   "version": "0.1.0",
-  "description": "Placeholder-website for https://lepik.se",
+  "description": "First page and drum macheine for https://lepik.se",
   "main": "index.js",
   "scripts": {
     "dev": "live-server src",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/wanecek/lepik-se.git"
+    "url": "git+ssh://git@github.com/AndreasLepik/lepik-se.git"
   },
-  "author": "Wilhelm Wanecek <wilhelm@wanecek.com>",
+  "author": "Andreas Lepik",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wanecek/lepik-se/issues"
+    "url": "https://github.com/AndreasLepik/lepik-se/issues"
   },
-  "homepage": "https://github.com/wanecek/lepik-se#readme",
+  "homepage": "https://github.com/AndreasLepik/lepik-se#readme",
   "devDependencies": {
     "autoprefixer": "^9.7.4",
     "cssnano": "^4.1.10",
