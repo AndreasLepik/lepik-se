@@ -14,6 +14,7 @@ Solo current channel
 UML?
 
 ### Cascading Style Sheets
+Add warning for mobile/ not wide users.
 Use more width by default
 Cleanup: Make more general scaleable rules for divs
 Change px to something fancier
