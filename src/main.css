@@ -243,7 +243,7 @@ html {
 
 body {
   background: #0839fa;
-  background: #727272;
+  background: #f4ebdb;
   color: white;
   font-family: -apple-system, 'San Fransisco', system-ui, sans-serif;
   display: flex;
@@ -265,6 +265,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
+  color: #15215a;
 }
 
 h1, h2 {
@@ -279,21 +280,109 @@ h2 {
 .page-wrap {
   width: 45rem;
   max-width: 90%;
-  margin: 2em auto;
-  padding-bottom: 5%;
+  margin: 1em auto;
+  /* padding-bottom: 5%; */
+  justify-content: center;
 }
 
 a {
-  color: #79CEB1;
+  /* color: #79CEB1; */
   transition: opacity 0.2s ease;
+  font-family: 'Roboto', 'Fjalla One';
+  color: #15215a;
+  text-decoration: none;
 }
 
 a:hover {
-  opacity: 0.75;
+  /* opacity: 0.75; */
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 420px) {
   body {
     font-size: 1.5em;
   }
+}
+
+#pic {
+  width: 500px;
+}
+
+#title {
+  width: 505px;
+  line-height: 130px;
+  /* font-size: 84px; */
+  font-size: 60.5px;
+  font-weight: 100;
+  /* font-stretch: ultra-expanded; */
+  font-family: 'Baskervville', 'Scheherazade', 'Playfair Display';
+  transform: scale(1, 2.5);
+  margin: 0;
+}
+
+#bottomtext p {
+  font-family: 'Baskervville', 'Scheherazade', 'Playfair Display';
+  color: #15215a;
+  font-size: medium;
+  margin: 5px;
+  text-align: center;
+}
+
+#bottomtext {
+  margin-top: 20px;
+}
+
+#box-wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.link-wrap {
+  /* transform: scale(1, 2); */
+  /* rotate: 90deg; */
+  width: 105px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#music, #work, #contact {
+  rotate: 90deg;
+  line-height: 106px;
+  margin-top: 0;
+  margin-right: 20px;
+  font-size: 55px;
+  transform: scale(1, 2.4);
+}
+
+#music {
+  line-height: 100px;
+}
+
+#contact {
+  /* color: #f4ebdb; */
+  -webkit-text-fill-color: #f4ebdb; 
+  -webkit-text-stroke-width: 0.8px;
+  -webkit-text-stroke-color: #15215a;
+  transition: opacity 0.2s ease;
+
+}
+
+#contact:hover {
+  -webkit-text-fill-color: #15215a; 
+  scale: (1, 3);
+}
+
+#music:hover, #work:hover {
+  -webkit-text-fill-color: #f4ebdb; 
+  -webkit-text-stroke-width: 0.8px;
+  -webkit-text-stroke-color: #15215a; 
+}
+
+#work {
+  rotate: -90deg;
+  margin-right: 0px;
+  line-height: 32px;
+  margin-right: 11px;
+  margin-top: 0px;
 }
