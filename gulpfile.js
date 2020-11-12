@@ -28,4 +28,10 @@ function copy() {
     .pipe(dest(`${paths.dest}/webbadoodle`));
 }
 
-exports.default = parallel(html, css, copy);
+function images() {
+  return src(`${paths.src}/images/*`)
+  .pipe(imagemin())
+  .pipe(dest(`${paths.dest}/images`));
+}
+
+exports.default = parallel(html, css, images, copy);
