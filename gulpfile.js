@@ -1,4 +1,6 @@
 const { src, dest, parallel } = require('gulp');
+const imagemin = require('gulp-imagemin');
+
 
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
