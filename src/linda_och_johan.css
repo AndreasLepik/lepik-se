@@ -47,10 +47,19 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  font-weight: 600;
+  /* font-weight: 600; */
+  font-weight: bold;
   font-size: 3rem;
   text-shadow: 1px 1px 1px #f43d20;
   margin-top: 2%;
+}
+
+#title_alt {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color:#221b1a;
+  position: static;
+  text-shadow: none;
 }
 
 .post {
