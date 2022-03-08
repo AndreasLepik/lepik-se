@@ -1,0 +1,35 @@
+body {
+  background: #e5d0aa;
+  color: #221b1a;
+  font-family: monospace;
+  /* min-height: 100%; */
+  font-size: 1.25em;
+  margin: 0;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  /* position: absolute; */
+}
+
+#top_card {
+  width: 100%;
+  position: relative;
+}
+
+#title {
+  /* z-index: -5; */
+  color: #FCB56F;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-weight: 600;
+  /* font-size: 2rem; */
+  text-shadow: 1px 1px 1px #F43D20;
+}
+
+.post {
+  margin-top: 5%;
+}
