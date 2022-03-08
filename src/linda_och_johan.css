@@ -5,7 +5,21 @@ body {
   /* min-height: 100%; */
   font-size: 1.25em;
   margin: 0;
+  margin-bottom: 10%;
   text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#page_wrapper {
+  max-width: 800px;
+}
+
+@media (min-width: 800px) {
+  .title {
+    position: relative;
+    color: black;
+  }
 }
 
 img {
@@ -13,21 +27,30 @@ img {
   /* position: absolute; */
 }
 
+.heart_container {
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.heart_img {
+  width: 1.5rem;
+}
+
 #top_card {
   width: 100%;
   position: relative;
 }
 
-#title {
-  /* z-index: -5; */
-  color: #FCB56F;
+.title {
+  color: #fcb56f;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   font-weight: 600;
-  /* font-size: 2rem; */
-  text-shadow: 1px 1px 1px #F43D20;
+  font-size: 3rem;
+  text-shadow: 1px 1px 1px #f43d20;
+  margin-top: 2%;
 }
 
 .post {
