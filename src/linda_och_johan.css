@@ -1,7 +1,13 @@
 body {
-  background: #e5d0aa;
-  color: #221b1a;
-  font-family: monospace;
+  /* background: #f7edde; */
+  color: #1d201f;
+  background: rgb(247, 237, 222);
+  background: linear-gradient(
+    180deg,
+    rgba(247, 237, 222, 1) 85%,
+    rgba(239, 219, 189, 1) 100%
+  );
+  font-family: "Roboto Mono", monospace;
   /* min-height: 100%; */
   font-size: 1.25em;
   margin: 0;
@@ -12,19 +18,25 @@ body {
 }
 
 #page_wrapper {
-  max-width: 800px;
+  max-width: 1000px;
 }
 
-@media (min-width: 800px) {
+/* @media (min-width: 800px) {
   .title {
     position: relative;
     color: black;
   }
-}
+} */
 
 img {
   width: 100%;
+  height: 100%;
   /* position: absolute; */
+}
+
+h2 {
+  /* color: #63A088; */
+  text-shadow: 0.05em 0.05em #63a088;
 }
 
 .heart_container {
@@ -39,6 +51,7 @@ img {
 #top_card {
   width: 100%;
   position: relative;
+  /* max-height: 50px; */
 }
 
 .title {
@@ -49,17 +62,19 @@ img {
   width: 100%;
   /* font-weight: 600; */
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-shadow: 1px 1px 1px #f43d20;
   margin-top: 2%;
 }
 
 #title_alt {
-  margin-top: 5%;
-  margin-bottom: 5%;
-  color:#221b1a;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #1d201f;
+  /* color:#221b1a; */
   position: static;
-  text-shadow: none;
+  /* text-shadow: none; */
+  text-shadow: 0.05em 0.05em #63a088;
 }
 
 .post {
