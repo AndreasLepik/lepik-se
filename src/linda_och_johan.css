@@ -58,7 +58,7 @@ h2 {
   height: 7em;
 }
 
-.post, .post_colored {
+.post, .post_colored, .bottom_post_colored {
   /* margin-top: 5%; */
   padding: 1em;
   display: flex;
@@ -67,7 +67,7 @@ h2 {
   min-height: 33vh;
 }
 
-.post_colored {
+.post_colored, .bottom_post_colored {
   padding: 1em;
   /* padding-left: 1em;
   padding-right: 1em; */
@@ -81,6 +81,10 @@ h2 {
   /* justify-content: center; */
 }
 
+.bottom_post_colored {
+  display: block;
+}
+
 .text_in_post {
   /* width: 68%; */
   text-align: left;
@@ -89,7 +93,7 @@ h2 {
   justify-content: center;
 }
 
-.icon_left, .icon_right {
+.icon, .icon_left, .icon_right {
   display: block;
   width: 7rem;
   flex-shrink: 0;
@@ -104,8 +108,20 @@ h2 {
   margin-right: 4rem;
 }
 
+.top_icon_wrapper {
+  justify-content: center;
+  display: flex;
+}
+
 #toastmasters {
   width: 20rem;
   flex-shrink: 0;
   margin-right: 4rem;
+}
+
+.post_inner_wrapper_bottom {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 3rem;
+  row-gap: 2rem;
 }
