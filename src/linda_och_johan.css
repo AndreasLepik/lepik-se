@@ -67,13 +67,24 @@ h2 {
   max-width: 1000px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .text_in_post {
   width: 68%;
+  text-align: left;
 }
 
-.icon {
-  width: 32%;
-  background: tomato;
+.icon_left, .icon_right {
+  display: block;
+  width: 7em;
+  /* background: tomato; */
+}
+
+.icon_right {
+  margin-left: 4rem;
+}
+
+.icon_left {
+  margin-right: 4rem;
 }
