@@ -111,6 +111,7 @@ h2 {
 .top_icon_wrapper {
   justify-content: center;
   display: flex;
+  height: 8rem;
 }
 
 #toastmasters {
