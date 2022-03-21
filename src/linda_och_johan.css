@@ -1,6 +1,8 @@
 body {
   color: #1d201f;
   background: rgb(247, 237, 222);
+  /* background: #B5C9CF;
+  background: #E6EDEF; */
   font-family: "Roboto Mono", monospace;
   /* min-height: 100%; */
   font-size: 1.25em;
@@ -16,12 +18,12 @@ body {
   justify-content: center; */
 }
 
-/* @media (min-width: 800px) {
-  .title {
-    position: relative;
-    color: black;
+@media (max-width: 800px) {
+  .post_inner_wrapper_bottom {
+    grid-template-columns: repeat(3, 1fr);
+    color: blue;
   }
-} */
+}
 
 img {
   width: 100%;
@@ -48,17 +50,21 @@ h2 {
 }
 
 #top_post {
-  margin-top: 5%;
+  margin-top: 3%;
   margin-left: 1em;
   margin-right: 1em;
 }
 
 #timeline {
   width: 100%;
-  height: 7em;
+  height: 10em;
+  margin-top: 7%;
+  margin-bottom: 7%;
 }
 
-.post, .post_colored, .bottom_post_colored {
+.post,
+.post_colored,
+.bottom_post_colored {
   /* margin-top: 5%; */
   padding: 1em;
   display: flex;
@@ -67,11 +73,14 @@ h2 {
   min-height: 33vh;
 }
 
-.post_colored, .bottom_post_colored {
+.post_colored,
+.bottom_post_colored {
   padding: 1em;
   /* padding-left: 1em;
   padding-right: 1em; */
-  background: #e5e9ef;
+  background: #FBF6EF;
+  /* background: #E6EDEF;
+  background: #CDDBDF; */
 }
 
 .post_inner_wrapper {
@@ -83,6 +92,7 @@ h2 {
 
 .bottom_post_colored {
   display: block;
+  padding-top: 3%;
 }
 
 .text_in_post {
@@ -93,11 +103,12 @@ h2 {
   justify-content: center;
 }
 
-.icon, .icon_left, .icon_right {
+.icon,
+.icon_left,
+.icon_right {
   display: block;
   width: 7rem;
   flex-shrink: 0;
-  /* background: tomato; */
 }
 
 .icon_right {
@@ -111,17 +122,31 @@ h2 {
 .top_icon_wrapper {
   justify-content: center;
   display: flex;
+  height: 8rem;
+}
+
+#toast_wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
 }
 
 #toastmasters {
   width: 20rem;
+  height: 20rem;
   flex-shrink: 0;
   margin-right: 4rem;
 }
 
 .post_inner_wrapper_bottom {
   display: grid;
+  grid-template-columns: 1fr;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 3rem;
   row-gap: 2rem;
+}
+
+.icon_text_group {
+  /* max-width: 400px; */
 }
