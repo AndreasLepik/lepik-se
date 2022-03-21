@@ -125,8 +125,16 @@ h2 {
   height: 8rem;
 }
 
+#toast_wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
 #toastmasters {
   width: 20rem;
+  height: 20rem;
   flex-shrink: 0;
   margin-right: 4rem;
 }
