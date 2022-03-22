@@ -18,7 +18,7 @@ body {
   justify-content: center; */
 }
 
-@media (max-width: 800px) {
+@media (min-width: 1000px) {
   .post_inner_wrapper_bottom {
     grid-template-columns: repeat(3, 1fr);
     color: blue;
@@ -76,11 +76,7 @@ h2 {
 .post_colored,
 .bottom_post_colored {
   padding: 1em;
-  /* padding-left: 1em;
-  padding-right: 1em; */
   background: #FBF6EF;
-  /* background: #E6EDEF;
-  background: #CDDBDF; */
 }
 
 .post_inner_wrapper {
@@ -96,7 +92,6 @@ h2 {
 }
 
 .text_in_post {
-  /* width: 68%; */
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -141,8 +136,8 @@ h2 {
 
 .post_inner_wrapper_bottom {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr); */
   column-gap: 3rem;
   row-gap: 2rem;
 }
