@@ -10,7 +10,7 @@ body {
 
 @media (min-width: 1000px) {
   body {
-  font-size: 1.25em;
+    font-size: 1.25em;
   }
 
   .post_inner_wrapper_bottom {
@@ -130,4 +130,14 @@ img {
   display: grid;
   column-gap: 3rem;
   row-gap: 2rem;
+}
+
+#video_wrapper {
+  height: 50vw;
+  width: 80vw;
+}
+
+iframe {
+  height: 100%;
+  width: 100%;
 }
